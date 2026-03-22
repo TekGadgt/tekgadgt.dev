@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "name": "Development",
+      "items": [
+        {
+          "name": "VS Code",
+          "description": "Primary editor",
+          "url": "https://code.visualstudio.com"
+        }
+      ]
+    }
+  ]
+}

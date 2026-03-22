@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import AppearancesList from '../components/about/AppearancesList.astro';
+import { reader } from '../lib/reader';
+import Markdoc from '@markdoc/markdoc';
+import '../styles/prose.css';
+const about = await reader.singletons.about.read();
+
+// content field is a ContentFormField: ValueForReading is () => Promise<{ node }>
+const contentResult = about?.content ? await about.content() : null;
+const contentHtml = contentResult
+  ? Markdoc.renderers.html(Markdoc.transform(contentResult.node))
+  : '';
+---
+
+<BaseLayout
+  title="About — Ryan McGovern"
+  description={about?.metaDescription ?? 'About Ryan McGovern — developer and community builder.'}
+>
+  <div class="about-page">
+    <div class="about-inner">
+      <header class="about-header">
+        <h1 class="about-heading">About</h1>
+      </header>
+
+      {contentHtml && (
+        <article class="prose about-prose" set:html={contentHtml} />
+      )}
+
+      <AppearancesList />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .about-inner {
+    max-width: var(--prose-width);
+    margin: 0 auto;
+  }
+
+  .about-header {
+    margin-bottom: 2rem;
+    border-bottom: var(--border-width) solid var(--border);
+    padding-bottom: 1.25rem;
+  }
+
+  .about-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+  }
+
+
+</style>

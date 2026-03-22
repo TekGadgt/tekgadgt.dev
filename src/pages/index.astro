@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import CredibilityStrip from '../components/home/CredibilityStrip.astro';
+import { reader } from '../lib/reader';
+
+const homepage = await reader.singletons.homepage.read();
+---
+
+<BaseLayout title="Ryan McGovern" description={homepage?.metaDescription ?? undefined}>
+  <Hero />
+  <CredibilityStrip />
+</BaseLayout>

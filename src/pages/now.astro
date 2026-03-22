@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { reader } from '../lib/reader';
+import Markdoc from '@markdoc/markdoc';
+import '../styles/prose.css';
+const now = await reader.singletons.now.read();
+
+const contentResult = now?.content ? await now.content() : null;
+const contentHtml = contentResult
+  ? Markdoc.renderers.html(Markdoc.transform(contentResult.node))
+  : '';
+
+---
+
+<BaseLayout
+  title="Now — Ryan McGovern"
+  description="What Ryan McGovern is currently focused on."
+>
+  <div class="now-page">
+    <div class="now-inner">
+      <header class="now-header">
+        <h1 class="now-heading">Now</h1>
+        <p class="now-about">
+          A <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">/now page</a> is a snapshot of what I'm currently up to.
+        </p>
+      </header>
+
+      {contentHtml ? (
+        <article class="prose" set:html={contentHtml} />
+      ) : (
+        <p class="now-empty">No content yet.</p>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .now-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .now-inner {
+    max-width: var(--prose-width);
+    margin: 0 auto;
+  }
+
+  .now-header {
+    margin-bottom: 2rem;
+    border-bottom: var(--border-width) solid var(--border);
+    padding-bottom: 1.25rem;
+  }
+
+  .now-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .now-about {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text);
+    opacity: 0.65;
+    margin: 0;
+  }
+
+  .now-empty {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--text);
+    opacity: 0.6;
+  }
+
+
+</style>

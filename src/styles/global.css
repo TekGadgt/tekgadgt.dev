@@ -1,0 +1,80 @@
+/* =====================================================
+   GOOGLE FONTS
+   ===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Silkscreen&display=swap');
+
+/* =====================================================
+   CSS RESET
+   ===================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+html {
+  font-family: var(--font-body);
+  line-height: var(--line-height-body);
+  color: var(--text);
+  background-color: var(--bg);
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* =====================================================
+   HEADINGS
+   ===================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--line-height-heading);
+  color: var(--text);
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* =====================================================
+   IMAGES
+   ===================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================================
+   CODE
+   ===================================================== */
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

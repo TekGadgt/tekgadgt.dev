@@ -1,0 +1,118 @@
+---
+import { reader } from '../../lib/reader';
+const [projects, community, appearances] = await Promise.all([
+  reader.singletons.projects.read(),
+  reader.singletons.community.read(),
+  reader.singletons.appearances.read(),
+]);
+
+const featuredProjects = (projects?.items ?? []).filter(p => p.featured);
+const featuredCommunity = (community?.items ?? []).filter(c => c.featured);
+const featuredAppearances = (appearances?.items ?? []).filter(a => a.featured);
+
+type StripItem = {
+  name: string;
+  url?: string | null;
+};
+
+const items: StripItem[] = [
+  ...featuredProjects.map(p => ({ name: p.name, url: p.url })),
+  ...featuredCommunity.map(c => ({ name: `${c.orgName} — ${c.role}`, url: c.url })),
+  ...featuredAppearances.map(a => ({ name: a.title, url: a.url })),
+];
+---
+
+{items.length > 0 && (
+  <section class="credibility-strip" aria-label="Featured work and appearances">
+    <div class="strip-inner">
+      <span class="strip-label">FEATURED</span>
+      <ul class="strip-list">
+        {items.map(item => (
+          <li class="strip-item">
+            {item.url ? (
+              <a href={item.url} class="strip-link" target="_blank" rel="noopener noreferrer">
+                {item.name}
+              </a>
+            ) : (
+              <span class="strip-text">{item.name}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .credibility-strip {
+    background-color: var(--surface-subtle);
+    border-bottom: var(--border-width) solid var(--border);
+  }
+
+  .strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.875rem 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .strip-label {
+    font-family: var(--font-retro);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    opacity: 0.6;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .strip-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .strip-item {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Divider between items */
+  .strip-item + .strip-item::before {
+    content: '/';
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text);
+    opacity: 0.4;
+    padding: 0 0.5rem;
+  }
+
+  .strip-link,
+  .strip-text {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text);
+  }
+
+  .strip-link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+
+  .strip-link:hover {
+    color: var(--link-hover);
+  }
+
+  .strip-link:focus-visible {
+    outline: var(--border-width) solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+</style>

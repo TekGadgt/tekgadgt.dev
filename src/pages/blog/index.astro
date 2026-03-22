@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import { reader } from '../../lib/reader';
+let posts = await reader.collections.posts.all();
+
+if (import.meta.env.PROD) {
+  posts = posts.filter(p => !p.entry.draft);
+}
+
+posts.sort((a, b) => {
+  const dateA = a.entry.date ? new Date(a.entry.date).getTime() : 0;
+  const dateB = b.entry.date ? new Date(b.entry.date).getTime() : 0;
+  return dateB - dateA;
+});
+---
+
+<BaseLayout title="Blog — Ryan McGovern" description="Writing on development, community, and building things in the 757.">
+  <div class="blog-page">
+    <div class="blog-inner">
+      <header class="blog-header">
+        <h1 class="blog-heading">Blog</h1>
+        <p class="blog-subhead">Notes on development, community, and building.</p>
+      </header>
+
+      {posts.length === 0 ? (
+        <p class="blog-empty">No posts yet. Check back soon.</p>
+      ) : (
+        <div class="post-grid">
+          {posts.map(post => (
+            <PostCard
+              title={post.entry.title}
+              description={post.entry.description}
+              date={post.entry.date ?? ''}
+              tags={post.entry.tags as string[]}
+              slug={post.slug}
+              image={post.entry.image ?? null}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .blog-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .blog-header {
+    margin-bottom: 2.5rem;
+    border-bottom: var(--border-width) solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+
+  .blog-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-subhead {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text);
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+    gap: 1.5rem;
+  }
+
+  .blog-empty {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--text);
+    opacity: 0.6;
+  }
+</style>

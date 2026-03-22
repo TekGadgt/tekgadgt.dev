@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "name": "cssdaily.dev",
+      "description": "Daily CSS tips and challenges.",
+      "url": "https://cssdaily.dev",
+      "techTags": ["CSS", "Web"],
+      "image": null,
+      "featured": true
+    },
+    {
+      "name": "Conclave Chat",
+      "description": "Real-time chat application.",
+      "url": "",
+      "techTags": ["JavaScript", "WebSockets"],
+      "image": null,
+      "featured": true
+    },
+    {
+      "name": "BuildBeat",
+      "description": "Build tracking and accountability tool.",
+      "url": "",
+      "techTags": ["JavaScript"],
+      "image": null,
+      "featured": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "email": "placeholder@example.com",
+  "calUrl": "https://cal.com/placeholder",
+  "socialLinks": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/placeholder",
+      "icon": "github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/placeholder",
+      "icon": "linkedin"
+    }
+  ]
+}

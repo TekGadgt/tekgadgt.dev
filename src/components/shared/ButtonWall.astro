@@ -1,0 +1,156 @@
+---
+import { reader } from '../../lib/reader';
+const buttonWall = await reader.singletons.buttonWall.read();
+const allButtons = buttonWall?.buttons ?? [];
+
+const activeButtons = allButtons.filter(b => b.active);
+const mineButtons = activeButtons.filter(b => b.group === 'mine');
+const friendsButtons = activeButtons.filter(b => b.group === 'friends');
+---
+
+{activeButtons.length > 0 && (
+  <div class="button-wall">
+    {mineButtons.length > 0 && (
+      <div class="button-wall__group">
+        <h3 class="button-wall__heading">Mine</h3>
+        <div class="button-wall__buttons">
+          {mineButtons.map(btn => (
+            btn.url && btn.image ? (
+              <a
+                href={btn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={btn.label}
+                class="button-wall__link"
+              >
+                <img
+                  src={btn.image}
+                  alt={btn.label}
+                  width="88"
+                  height="31"
+                  loading="lazy"
+                  class="button-wall__img"
+                />
+              </a>
+            ) : btn.url ? (
+              <a
+                href={btn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button-wall__link button-wall__link--text"
+              >
+                {btn.label}
+              </a>
+            ) : null
+          ))}
+        </div>
+      </div>
+    )}
+
+    {friendsButtons.length > 0 && (
+      <div class="button-wall__group">
+        <h3 class="button-wall__heading">Friends</h3>
+        <div class="button-wall__buttons">
+          {friendsButtons.map(btn => (
+            btn.url && btn.image ? (
+              <a
+                href={btn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={btn.label}
+                class="button-wall__link"
+              >
+                <img
+                  src={btn.image}
+                  alt={btn.label}
+                  width="88"
+                  height="31"
+                  loading="lazy"
+                  class="button-wall__img"
+                />
+              </a>
+            ) : btn.url ? (
+              <a
+                href={btn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button-wall__link button-wall__link--text"
+              >
+                {btn.label}
+              </a>
+            ) : null
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+)}
+
+<style>
+  .button-wall {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .button-wall__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .button-wall__heading {
+    font-family: var(--font-retro);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    opacity: 0.65;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .button-wall__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .button-wall__link {
+    display: inline-block;
+    line-height: 0;
+    border: 1px solid var(--border);
+    transition: opacity 0.1s, box-shadow 0.1s;
+  }
+
+  .button-wall__link:hover {
+    opacity: 0.85;
+    box-shadow: 2px 2px 0 var(--border);
+  }
+
+  .button-wall__img {
+    display: block;
+    image-rendering: pixelated;
+    width: 88px;
+    height: 31px;
+  }
+
+  .button-wall__link--text {
+    font-family: var(--font-retro);
+    font-size: 0.5rem;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.25rem 0.375rem;
+    border: 1px solid var(--border);
+    width: 88px;
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+</style>
