@@ -4,6 +4,8 @@
 
 Personal portfolio site for Ryan McGovern — developer and community builder. The site serves as a central hub for projects, community work, blog content, and professional presence.
 
+**Decision history:** The initial brainstorming (`docs/brainstorm-approaches.md`) evaluated Sveltia CMS, MDX, and three framework approaches. After further evaluation, the CMS was changed to Keystatic (GitHub mode) for its native Astro integration and git-backed editing via GitHub's API. Content format follows Keystatic's default: Markdoc (structured, extensible via custom tags, no arbitrary JS execution). Framework approach A (Astro + minimal JS) was selected.
+
 ## Tech Stack
 
 - **Framework:** Astro (static site generation)
@@ -20,7 +22,7 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 
 - Hero: name, tagline ("Developer & Community Builder"), 2-3 line bio
 - Primary CTA (View Projects) + secondary CTA (Get in Touch)
-- Credibility strip: pulls entries flagged `featured: true` from projects, community, and appearances singletons
+- Credibility strip: pulls all entries flagged `featured: true` from projects, community, and appearances singletons. Displays name + link for each. Ordered by: projects first, then community, then appearances (within each group, order matches the singleton array order).
 - "Read full story" link to About page
 - Content managed via `homepage` Keystatic singleton
 
@@ -34,10 +36,11 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 
 ### Blog (`/blog` + `/blog/[slug]`)
 
-- List page with post previews
+- List page with post previews (rendered from description field)
 - Individual post pages rendered from Markdoc
-- Keystatic collection — slug derived from title field
-- Post fields: title, date, tags (array), draft flag, content (Markdoc)
+- Keystatic collection — slug derived from title field (slugified → filename)
+- Post fields: title, description (plain text, used for previews + RSS + meta), date (ISO 8601), tags (array), draft (boolean), image (optional, cover/hero image for social sharing and list page), content (Markdoc)
+- Draft posts: excluded from production builds and RSS feed, visible in development mode only
 - File structure: `src/content/posts/[slug]/index.mdoc`
 
 ### About (`/about`)
@@ -45,7 +48,7 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 - Deeper narrative about background, values, how dev + community building connect
 - Managed as Keystatic singleton (rich Markdoc content)
 - Appearances section rendered below the narrative, pulled from `appearances` singleton
-- Appearance entry: type (talk/interview/podcast/article), title, outlet/event, date, URL, featured (boolean)
+- Appearance entry: type (talk/interview/podcast/article), title, outlet/event, date (ISO 8601), URL, featured (boolean)
 
 ### Now (`/now`)
 
@@ -59,15 +62,20 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 - Managed as Keystatic singleton — JSON array of categories, each with name and items (array of name + description + optional URL)
 - Reference: [uses.tech](https://uses.tech/)
 
+### 404 Page
+
+- Custom `src/pages/404.astro` — uses shared layout, simple message with link back to homepage
+
 ### RSS Feed (`/rss.xml`)
 
 - Generated via `@astrojs/rss` from blog posts collection
+- Uses post `description` field for `<description>` element
 
 ## Layout
 
 ### Header
 
-- Site name/logo
+- Site name/logo (links to `/`)
 - Navigation: Work, Blog, About, Now, Uses
 - Theme toggle
 
@@ -76,6 +84,7 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 - Email address
 - Cal.com booking link
 - Social links (array of platform name + URL + icon identifier)
+- Icon rendering strategy deferred to design phase (Codex determines approach — inline SVGs, icon library, etc.)
 - Managed via `footer` Keystatic singleton
 
 ## Keystatic Schema
@@ -84,9 +93,9 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 
 | Singleton | Format | Fields |
 |-----------|--------|--------|
-| `homepage` | JSON | hero heading, tagline, bio text, primary CTA (label + URL), secondary CTA (label + URL) |
-| `about` | Markdoc | rich content field |
-| `appearances` | JSON | array of: type, title, outlet/event, date, URL, featured (boolean) |
+| `homepage` | JSON | hero heading, tagline, bio text, primary CTA (label + URL), secondary CTA (label + URL), meta description |
+| `about` | Markdoc | rich content field, meta description |
+| `appearances` | JSON | array of: type, title, outlet/event, date (ISO 8601), URL, featured (boolean) |
 | `projects` | JSON | array of: name, description, URL, tech tags (array), image (optional), featured (boolean) |
 | `community` | JSON | array of: org name, role, description, URL, status (active/past), featured (boolean) |
 | `now` | Markdoc | rich content field |
@@ -97,9 +106,11 @@ Personal portfolio site for Ryan McGovern — developer and community builder. T
 
 | Collection | Format | Slug Source | Fields |
 |------------|--------|-------------|--------|
-| `posts` | Markdoc | title field (slugified → filename) | title, date, tags (array), draft (boolean), content (Markdoc) |
+| `posts` | Markdoc | title field (slugified → filename) | title, description, date (ISO 8601), tags (array), draft (boolean), image (optional), content (Markdoc) |
 
 ## Content File Structure
+
+All content paths are configured in `keystatic.config.ts`. The following is the intended structure:
 
 ```
 src/
@@ -107,19 +118,15 @@ src/
     posts/                  # Keystatic collection (blog)
       [slug]/
         index.mdoc
-
-keystatic/                  # Keystatic singletons (paths determined by schema config)
-  homepage.json
-  about.mdoc
-  appearances.json
-  projects.json
-  community.json
-  now.mdoc
-  uses.json
-  footer.json
+    homepage.json           # Singletons live alongside content
+    about.mdoc
+    appearances.json
+    projects.json
+    community.json
+    now.mdoc
+    uses.json
+    footer.json
 ```
-
-Note: Actual singleton paths are determined by Keystatic schema configuration.
 
 ## Theme Toggle
 
@@ -144,7 +151,7 @@ Visual design is driven by Codex (ChatGPT via codex-cli). This spec covers archi
 
 - No dedicated `/contact` page
 - Email and Cal.com link live in the footer
-- Bot-protection for email is deferred to a future iteration
+- Email bot-protection (accessible obfuscation for screen readers) is deferred to a future iteration — noted in the initial brainstorm but intentionally descoped for v1
 
 ## Future Considerations (out of scope)
 
