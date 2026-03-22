@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PostHeader from '../../components/blog/PostHeader.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+import Markdoc from '@markdoc/markdoc';
+
+export async function getStaticPaths() {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  let posts = await reader.collections.posts.all();
+
+  if (import.meta.env.PROD) {
+    posts = posts.filter(p => !p.entry.draft);
+  }
+
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.props as { slug: string };
+const reader = createReader(process.cwd(), keystaticConfig);
+const post = await reader.collections.posts.read(slug);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+// Render markdoc content: content field is a ContentFormField, so ValueForReading is () => Promise<{ node }>
+const contentResult = await post.content();
+const renderable = Markdoc.transform(contentResult.node);
+const contentHtml = Markdoc.renderers.html(renderable);
+---
+
+<BaseLayout title={`${post.title} — Ryan McGovern`} description={post.description}>
+  <main class="post-page">
+    <div class="post-inner">
+      <PostHeader
+        title={post.title}
+        date={post.date ?? ''}
+        tags={post.tags as string[]}
+        image={post.image ?? null}
+        description={post.description}
+      />
+      <article class="prose" set:html={contentHtml} />
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .post-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .post-inner {
+    max-width: var(--prose-width);
+    margin: 0 auto;
+  }
+
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(h4),
+  .prose :global(h5),
+  .prose :global(h6) {
+    font-family: var(--font-heading);
+    line-height: var(--line-height-heading);
+    margin: 1.75em 0 0.6em;
+    color: var(--text);
+  }
+
+  .prose :global(h2) { font-size: 1.6rem; }
+  .prose :global(h3) { font-size: 1.3rem; }
+  .prose :global(h4) { font-size: 1.1rem; }
+
+  .prose :global(p) {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: var(--line-height-body);
+    color: var(--text);
+    margin: 0 0 1.25em;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 1.25em 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: var(--line-height-body);
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.375em;
+  }
+
+  .prose :global(blockquote) {
+    border-left: var(--border-width) solid var(--accent-primary);
+    margin: 1.5em 0;
+    padding: 0.75em 1.25em;
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background-color: var(--muted);
+    padding: 0.15em 0.4em;
+  }
+
+  .prose :global(pre) {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background-color: var(--muted);
+    border: var(--border-width) solid var(--border);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 0 0 1.5em;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: var(--border-width) solid var(--border);
+    margin: 2.5em 0;
+  }
+
+  .prose :global(img) {
+    max-width: 100%;
+    border: var(--border-width) solid var(--border);
+    box-shadow: var(--shadow);
+    margin: 1.5em 0;
+  }
+
+  .prose :global(a) {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--accent-primary);
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.5em;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    border: var(--border-width) solid var(--border);
+    padding: 0.5em 0.75em;
+    text-align: left;
+  }
+
+  .prose :global(th) {
+    background-color: var(--muted);
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+  }
+</style>
