@@ -3,6 +3,7 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
 import ExperienceSection from '../components/work/ExperienceSection.astro';
 import ProjectCard from '../components/work/ProjectCard.astro';
 import CommunityCard from '../components/work/CommunityCard.astro';
+import ButtonWall from '../components/shared/ButtonWall.astro';
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../keystatic.config';
 
@@ -35,6 +36,8 @@ const community = await reader.singletons.community.read();
           </div>
         </section>
       </div>
+
+      <ButtonWall />
     </div>
   </main>
 </BaseLayout>
