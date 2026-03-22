@@ -1,7 +1,8 @@
 ---
 import '../../styles/theme.css';
 import '../../styles/global.css';
-import ThemeToggle from './ThemeToggle.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
 
 interface Props {
   title: string;
@@ -28,8 +29,9 @@ const { title, description = 'Ryan McGovern — developer and community builder.
     </script>
   </head>
   <body>
-    <ThemeToggle />
+    <Header />
     <slot />
+    <Footer />
     <script>
       const toggle = document.querySelector('[data-theme-toggle]');
       if (toggle) {
@@ -40,13 +42,13 @@ const { title, description = 'Ryan McGovern — developer and community builder.
           localStorage.setItem('theme', next);
           // Update toggle visual state
           toggle.querySelectorAll('[data-theme-option]').forEach(el => {
-            el.classList.toggle('active', el.dataset.themeOption === next);
+            (el as HTMLElement).classList.toggle('active', (el as HTMLElement).dataset.themeOption === next);
           });
         });
         // Set initial state
         const current = document.documentElement.getAttribute('data-theme') || 'light';
         toggle.querySelectorAll('[data-theme-option]').forEach(el => {
-          el.classList.toggle('active', el.dataset.themeOption === current);
+          (el as HTMLElement).classList.toggle('active', (el as HTMLElement).dataset.themeOption === current);
         });
       }
     </script>
