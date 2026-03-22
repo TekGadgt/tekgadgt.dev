@@ -1,0 +1,54 @@
+/* =====================================================
+   THEME TOKENS — Neobrutalist Design System
+   ===================================================== */
+
+:root {
+  /* Colors — Light Theme */
+  --bg: #FDFBF4;
+  --surface: #FFFFFF;
+  --text: #101010;
+  --muted: #E9E1D2;
+  --border: #101010;
+  --accent-primary: #FFD400;
+  --accent-secondary: #19B6FF;
+  --accent-tertiary: #FF5C9A;
+  --success: #1FA85B;
+  --danger: #D7263D;
+
+  /* Shadows — hard, no blur (neobrutalism) */
+  --shadow: 4px 4px 0 var(--border);
+  --shadow-hover: 6px 6px 0 var(--border);
+
+  /* Borders */
+  --border-width: 3px;
+
+  /* Corners — square (neobrutalism) */
+  --radius: 0;
+
+  /* Typography */
+  --font-heading: 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-retro: 'Silkscreen', monospace;
+
+  /* Line Heights */
+  --line-height-heading: 1.0;
+  --line-height-body: 1.6;
+
+  /* Prose */
+  --prose-width: 70ch;
+}
+
+[data-theme="dark"] {
+  /* Colors — Dark Theme */
+  --bg: #121212;
+  --surface: #1E1E1E;
+  --text: #F5F1E8;
+  --muted: #2A2A2A;
+  --border: #F5F1E8;
+  --accent-primary: #FFD400;
+  --accent-secondary: #5FD3FF;
+  --accent-tertiary: #FF7FB1;
+  --success: #3DDC84;
+  --danger: #FF5E6C;
+}
