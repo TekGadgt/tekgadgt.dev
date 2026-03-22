@@ -30,7 +30,9 @@ const { title, description = 'Ryan McGovern — developer and community builder.
   </head>
   <body>
     <Header />
-    <slot />
+    <main class="main-content">
+      <slot />
+    </main>
     <Footer />
     <script>
       const toggle = document.querySelector('[data-theme-toggle]');

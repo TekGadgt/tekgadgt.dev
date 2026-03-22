@@ -20,6 +20,17 @@ html {
   line-height: var(--line-height-body);
   color: var(--text);
   background-color: var(--bg);
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
 
 /* =====================================================
