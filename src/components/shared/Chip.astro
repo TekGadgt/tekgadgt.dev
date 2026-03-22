@@ -1,0 +1,52 @@
+---
+interface Props {
+  label: string;
+  variant?: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'danger';
+}
+
+const { label, variant = 'default' } = Astro.props;
+---
+
+<span class:list={['chip', `chip--${variant}`]}>{label}</span>
+
+<style>
+  .chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+    border: var(--border-width) solid var(--border);
+    background-color: var(--surface);
+    color: var(--text);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .chip--primary {
+    background-color: var(--accent-primary);
+    color: var(--text);
+  }
+
+  .chip--secondary {
+    background-color: var(--accent-secondary);
+    color: var(--text);
+  }
+
+  .chip--tertiary {
+    background-color: var(--accent-tertiary);
+    color: var(--text);
+  }
+
+  .chip--success {
+    background-color: var(--success);
+    color: #fff;
+  }
+
+  .chip--danger {
+    background-color: var(--danger);
+    color: #fff;
+  }
+</style>
