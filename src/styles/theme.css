@@ -1,14 +1,16 @@
 /* =====================================================
    THEME TOKENS — Neobrutalist Design System
+   Authored by Codex (ChatGPT) — design lead
    ===================================================== */
 
 :root {
   /* Colors — Light Theme */
-  --bg: #FDFBF4;
-  --surface: #FFFFFF;
-  --text: #101010;
-  --muted: #E9E1D2;
-  --border: #101010;
+  --bg: #fffaf0;
+  --surface: #fffdf7;
+  --surface-elevated: #fff;
+  --text: #121212;
+  --muted: #ece7dc;
+  --border: #121212;
   --accent-primary: #FFD400;
   --accent-secondary: #19B6FF;
   --accent-tertiary: #FF5C9A;
@@ -16,8 +18,22 @@
   --danger: #D7263D;
 
   /* Shadows — hard, no blur (neobrutalism) */
-  --shadow: 4px 4px 0 var(--border);
-  --shadow-hover: 6px 6px 0 var(--border);
+  --shadow-hard: #121212;
+  --shadow-ambient: rgba(0, 0, 0, 0.18);
+  --shadow-offset: 4px;
+  --shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-hard);
+  --shadow-hover: 6px 6px 0 var(--shadow-hard);
+
+  /* Chip tokens */
+  --chip-bg: #fffaf0;
+  --chip-fg: #121212;
+  --chip-border: var(--border);
+  --chip-featured-bg: var(--accent-primary);
+  --chip-featured-fg: #121212;
+  --chip-active-bg: var(--success);
+  --chip-active-fg: #0d1d15;
+  --chip-danger-bg: var(--danger);
+  --chip-danger-fg: #fff;
 
   /* Borders */
   --border-width: 3px;
@@ -42,13 +58,29 @@
 [data-theme="dark"] {
   /* Colors — Dark Theme */
   --bg: #121212;
-  --surface: #1E1E1E;
+  --surface: #262626;
+  --surface-elevated: #303030;
   --text: #F5F1E8;
-  --muted: #2A2A2A;
+  --muted: #1a1a1a;
   --border: #F5F1E8;
   --accent-primary: #FFD400;
   --accent-secondary: #5FD3FF;
   --accent-tertiary: #FF7FB1;
   --success: #3DDC84;
   --danger: #FF5E6C;
+
+  /* Shadows — lighter hard shadow for dark mode */
+  --shadow-hard: #d9d3c6;
+  --shadow-ambient: rgba(0, 0, 0, 0.45);
+
+  /* Chip tokens — dark mode */
+  --chip-bg: #1d1d1d;
+  --chip-fg: #F5F1E8;
+  --chip-border: #F5F1E8;
+  --chip-featured-bg: #FFD400;
+  --chip-featured-fg: #121212;
+  --chip-active-bg: #3DDC84;
+  --chip-active-fg: #0c1a13;
+  --chip-danger-bg: #FF5E6C;
+  --chip-danger-fg: #2f0d11;
 }

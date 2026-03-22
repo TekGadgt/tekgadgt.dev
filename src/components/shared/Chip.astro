@@ -11,42 +11,45 @@ const { label, variant = 'default' } = Astro.props;
 
 <style>
   .chip {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.7rem;
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-weight: bold;
-    padding: 0.2rem 0.5rem;
-    border: var(--border-width) solid var(--border);
-    background-color: var(--surface);
-    color: var(--text);
-    line-height: 1.4;
+    font-weight: 900;
+    padding: 0.32rem 0.62rem;
+    border: 2px solid var(--chip-border);
+    background: var(--chip-bg);
+    color: var(--chip-fg);
+    line-height: 1;
     white-space: nowrap;
+    box-shadow: 2px 2px 0 var(--chip-border);
   }
 
   .chip--primary {
-    background-color: var(--accent-primary);
-    color: var(--text);
+    background: var(--chip-featured-bg);
+    color: var(--chip-featured-fg);
   }
 
   .chip--secondary {
-    background-color: var(--accent-secondary);
-    color: var(--text);
+    background: var(--accent-secondary);
+    color: var(--chip-featured-fg);
   }
 
   .chip--tertiary {
-    background-color: var(--accent-tertiary);
-    color: var(--text);
+    background: var(--accent-tertiary);
+    color: var(--chip-featured-fg);
   }
 
   .chip--success {
-    background-color: var(--success);
-    color: #fff;
+    background: var(--chip-active-bg);
+    color: var(--chip-active-fg);
   }
 
   .chip--danger {
-    background-color: var(--danger);
-    color: #fff;
+    background: var(--chip-danger-bg);
+    color: var(--chip-danger-fg);
   }
 </style>

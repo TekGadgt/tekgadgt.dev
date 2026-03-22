@@ -20,6 +20,11 @@ export default config({
         primaryCtaUrl: fields.text({ label: 'Primary CTA URL' }),
         secondaryCtaLabel: fields.text({ label: 'Secondary CTA Label' }),
         secondaryCtaUrl: fields.text({ label: 'Secondary CTA URL' }),
+        heroImage: fields.image({
+          label: 'Hero Photo',
+          directory: 'public/images',
+          publicPath: '/images/',
+        }),
         metaDescription: fields.text({ label: 'Meta Description', multiline: true }),
       },
     }),

@@ -41,13 +41,14 @@ const cardProps = url
   .project-card {
     position: relative;
     display: block;
-    background-color: var(--surface);
+    background: linear-gradient(180deg, var(--surface-elevated, var(--surface)) 0%, var(--surface) 100%);
     border: var(--border-width) solid var(--border);
     box-shadow: var(--shadow);
     padding: 1.25rem;
     text-decoration: none;
     color: var(--text);
     transition: transform 0.1s, box-shadow 0.1s;
+    overflow: visible;
   }
 
   a.project-card:hover {
@@ -67,15 +68,20 @@ const cardProps = url
   .featured-label {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 12px;
+    transform: translateY(-55%);
+    z-index: 3;
+    pointer-events: none;
     font-family: var(--font-retro);
-    font-size: 0.5625rem;
+    font-size: 0.72rem;
+    font-weight: 900;
     letter-spacing: 0.08em;
-    background-color: var(--accent-primary);
-    color: var(--text);
-    border-left: var(--border-width) solid var(--border);
-    border-bottom: var(--border-width) solid var(--border);
-    padding: 0.2rem 0.5rem;
+    background: var(--chip-featured-bg);
+    color: var(--chip-featured-fg);
+    border: 2px solid var(--chip-border);
+    padding: 0.32rem 0.62rem;
+    box-shadow: 2px 2px 0 var(--chip-border);
+    outline: 3px solid var(--bg);
   }
 
   .card-image {
