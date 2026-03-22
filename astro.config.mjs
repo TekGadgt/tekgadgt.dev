@@ -10,6 +10,7 @@ import react from '@astrojs/react';
 // server-rendered admin routes work, while the rest of the site stays statically generated.
 // Keystatic's admin UI requires React.
 export default defineConfig({
+  site: 'https://example.com',
   output: 'static',
   adapter: netlify(),
   integrations: [
