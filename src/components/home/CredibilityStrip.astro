@@ -1,8 +1,5 @@
 ---
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../../lib/reader';
 const [projects, community, appearances] = await Promise.all([
   reader.singletons.projects.read(),
   reader.singletons.community.read(),
@@ -111,7 +108,7 @@ const items: StripItem[] = [
   }
 
   .strip-link:hover {
-    color: var(--accent-secondary);
+    color: var(--link-hover);
   }
 
   .strip-link:focus-visible {

@@ -1,10 +1,7 @@
 ---
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import PostCard from '../../components/blog/PostCard.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../../lib/reader';
 let posts = await reader.collections.posts.all();
 
 if (import.meta.env.PROD) {
@@ -19,7 +16,7 @@ posts.sort((a, b) => {
 ---
 
 <BaseLayout title="Blog — Ryan McGovern" description="Writing on development, community, and building things in the 757.">
-  <main class="blog-page">
+  <div class="blog-page">
     <div class="blog-inner">
       <header class="blog-header">
         <h1 class="blog-heading">Blog</h1>
@@ -43,7 +40,7 @@ posts.sort((a, b) => {
         </div>
       )}
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>

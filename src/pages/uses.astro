@@ -1,9 +1,6 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../lib/reader';
 const uses = await reader.singletons.uses.read();
 const categories = uses?.categories ?? [];
 ---
@@ -12,7 +9,7 @@ const categories = uses?.categories ?? [];
   title="Uses — Ryan McGovern"
   description="The tools, hardware, and software Ryan McGovern uses day to day."
 >
-  <main class="uses-page">
+  <div class="uses-page">
     <div class="uses-inner">
       <header class="uses-header">
         <h1 class="uses-heading">Uses</h1>
@@ -57,7 +54,7 @@ const categories = uses?.categories ?? [];
         </div>
       )}
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
@@ -151,7 +148,7 @@ const categories = uses?.categories ?? [];
   }
 
   a.uses-item__name:hover {
-    color: var(--accent-secondary);
+    color: var(--link-hover);
     text-decoration: underline;
     text-decoration-thickness: 2px;
   }

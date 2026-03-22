@@ -1,8 +1,5 @@
 ---
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../../lib/reader';
 const homepage = await reader.singletons.homepage.read();
 ---
 
@@ -180,7 +177,7 @@ const homepage = await reader.singletons.homepage.read();
   }
 
   .hero-read-more:hover {
-    color: var(--accent-secondary);
+    color: var(--link-hover);
   }
 
   .hero-read-more:focus-visible {

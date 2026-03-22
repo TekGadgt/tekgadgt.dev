@@ -1,9 +1,6 @@
 ---
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
+import { reader } from '../../lib/reader';
 import ButtonWall from '../shared/ButtonWall.astro';
-
-const reader = createReader(process.cwd(), keystaticConfig);
 const footer = await reader.singletons.footer.read();
 ---
 

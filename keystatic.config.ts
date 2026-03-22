@@ -5,7 +5,7 @@ export default config({
     ? { kind: 'local' }
     : {
         kind: 'github',
-        repo: 'OWNER/REPO', // TODO: replace with actual repo
+        repo: 'TekGadgt/tekgadgt.dev' as const,
       },
   singletons: {
     homepage: singleton({

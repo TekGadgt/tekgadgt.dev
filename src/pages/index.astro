@@ -2,16 +2,12 @@
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
 import CredibilityStrip from '../components/home/CredibilityStrip.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../keystatic.config';
+import { reader } from '../lib/reader';
 
-const reader = createReader(process.cwd(), keystaticConfig);
 const homepage = await reader.singletons.homepage.read();
 ---
 
 <BaseLayout title="Ryan McGovern" description={homepage?.metaDescription ?? undefined}>
-  <main>
-    <Hero />
-    <CredibilityStrip />
-  </main>
+  <Hero />
+  <CredibilityStrip />
 </BaseLayout>

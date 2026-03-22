@@ -33,8 +33,13 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    transition: background-color 0.15ms, color 0.15ms;
+    transition: background-color 150ms, color 150ms;
     border-radius: var(--radius);
+  }
+
+  .theme-toggle__segment:focus-visible {
+    outline: var(--border-width) solid var(--accent-secondary);
+    outline-offset: 2px;
   }
 
   /* Divider between the two segments */

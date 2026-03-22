@@ -1,9 +1,6 @@
 ---
 import Chip from '../shared/Chip.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../../lib/reader';
 const experience = await reader.singletons.experience.read();
 
 const items = experience?.items ?? [];
@@ -131,7 +128,7 @@ function formatDate(dateStr: string | null | undefined): string {
   }
 
   .timeline-company--link:hover {
-    color: var(--accent-secondary);
+    color: var(--link-hover);
   }
 
   .timeline-location,
@@ -139,7 +136,7 @@ function formatDate(dateStr: string | null | undefined): string {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text);
-    opacity: 0.55;
+    opacity: 0.65;
   }
 
   .timeline-location::before,

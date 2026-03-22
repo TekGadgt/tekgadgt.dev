@@ -4,16 +4,13 @@ import ExperienceSection from '../components/work/ExperienceSection.astro';
 import ProjectCard from '../components/work/ProjectCard.astro';
 import CommunityCard from '../components/work/CommunityCard.astro';
 import ButtonWall from '../components/shared/ButtonWall.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../lib/reader';
 const projects = await reader.singletons.projects.read();
 const community = await reader.singletons.community.read();
 ---
 
 <BaseLayout title="Work — Ryan McGovern" description="Projects, community work, and professional experience.">
-  <main class="work-page">
+  <div class="work-page">
     <div class="page-header">
       <h1 class="page-title">Work</h1>
     </div>
@@ -39,7 +36,7 @@ const community = await reader.singletons.community.read();
 
       <ButtonWall />
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>

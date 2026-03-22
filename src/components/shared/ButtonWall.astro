@@ -1,8 +1,5 @@
 ---
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
-
-const reader = createReader(process.cwd(), keystaticConfig);
+import { reader } from '../../lib/reader';
 const buttonWall = await reader.singletons.buttonWall.read();
 const allButtons = buttonWall?.buttons ?? [];
 
@@ -109,7 +106,7 @@ const friendsButtons = activeButtons.filter(b => b.group === 'friends');
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text);
-    opacity: 0.55;
+    opacity: 0.65;
     margin: 0;
     line-height: 1;
   }

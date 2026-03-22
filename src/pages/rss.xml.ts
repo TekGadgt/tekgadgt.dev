@@ -1,10 +1,8 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../keystatic.config';
+import { reader } from '../lib/reader';
 
 export async function GET(context: APIContext) {
-  const reader = createReader(process.cwd(), keystaticConfig);
   const posts = await reader.collections.posts.all();
 
   const publishedPosts = posts
