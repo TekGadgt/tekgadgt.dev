@@ -42,15 +42,6 @@ const { title, description = 'Ryan McGovern — developer and community builder.
           const next = current === 'dark' ? 'light' : 'dark';
           document.documentElement.setAttribute('data-theme', next);
           localStorage.setItem('theme', next);
-          // Update toggle visual state
-          toggle.querySelectorAll('[data-theme-option]').forEach(el => {
-            (el as HTMLElement).classList.toggle('active', (el as HTMLElement).dataset.themeOption === next);
-          });
-        });
-        // Set initial state
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        toggle.querySelectorAll('[data-theme-option]').forEach(el => {
-          (el as HTMLElement).classList.toggle('active', (el as HTMLElement).dataset.themeOption === current);
         });
       }
     </script>

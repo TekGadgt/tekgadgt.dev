@@ -42,14 +42,16 @@
     border-right: var(--border-width) solid var(--border);
   }
 
-  /* Active state — filled with accent-primary, always dark text */
-  .theme-toggle__segment.active {
+  /* Active state driven by data-theme on <html> — no JS class needed */
+  :global([data-theme="light"]) [data-theme-option="light"],
+  :global([data-theme="dark"]) [data-theme-option="dark"] {
     background-color: var(--accent-primary);
     color: #121212;
     font-weight: bold;
   }
 
-  .theme-toggle__segment:hover:not(.active) {
+  :global([data-theme="light"]) [data-theme-option="dark"]:hover,
+  :global([data-theme="dark"]) [data-theme-option="light"]:hover {
     background-color: var(--muted);
   }
 </style>
