@@ -46,11 +46,11 @@ h1, h2, h3, h4, h5, h6 {
    LINKS
    ===================================================== */
 a {
-  color: var(--accent-secondary);
+  color: var(--link);
 }
 
 a:hover {
-  color: var(--accent-primary);
+  color: var(--link-hover);
 }
 
 /* =====================================================

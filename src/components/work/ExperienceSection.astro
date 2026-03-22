@@ -86,8 +86,8 @@ function formatDate(dateStr: string | null | undefined): string {
   .timeline-entry {
     border: var(--border-width) solid var(--border);
     border-top: none;
-    padding: 1.5rem;
-    background-color: var(--surface);
+    padding: var(--row-pad-y) var(--row-pad-x);
+    background: linear-gradient(180deg, var(--surface-elevated, var(--surface)) 0%, var(--surface) 100%);
   }
 
   .timeline-entry:first-child {

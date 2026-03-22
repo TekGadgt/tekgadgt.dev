@@ -95,11 +95,12 @@ const contentHtml = Markdoc.renderers.html(renderable);
   }
 
   .prose :global(blockquote) {
-    border-left: var(--border-width) solid var(--accent-primary);
     margin: 1.5em 0;
     padding: 0.75em 1.25em;
-    background-color: var(--surface);
+    background: linear-gradient(180deg, var(--surface-elevated, var(--surface)) 0%, var(--surface) 100%);
     border: var(--border-width) solid var(--border);
+    border-left-width: calc(var(--border-width) * 2);
+    border-left-color: var(--accent-primary);
     box-shadow: var(--shadow);
   }
 

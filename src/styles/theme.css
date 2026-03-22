@@ -53,6 +53,20 @@
 
   /* Prose */
   --prose-width: 70ch;
+
+  /* Text on accent backgrounds */
+  --text-on-accent: #121212;
+
+  /* Subtle surface (credibility strip, etc.) */
+  --surface-subtle: var(--muted);
+
+  /* Link colors */
+  --link: #0c6fb8;
+  --link-hover: #08558d;
+
+  /* Row padding (standardized) */
+  --row-pad-y: 1rem;
+  --row-pad-x: 1.25rem;
 }
 
 [data-theme="dark"] {
@@ -83,4 +97,9 @@
   --chip-active-fg: #0c1a13;
   --chip-danger-bg: #FF5E6C;
   --chip-danger-fg: #2f0d11;
+
+  --text-on-accent: #121212;
+  --surface-subtle: #2a2a2a;
+  --link: var(--accent-secondary);
+  --link-hover: var(--accent-primary);
 }

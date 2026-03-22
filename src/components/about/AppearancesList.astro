@@ -94,8 +94,8 @@ function formatDate(dateStr: string | null | undefined): string {
   .appearance-item {
     border: var(--border-width) solid var(--border);
     border-top: none;
-    padding: 1rem 1.25rem;
-    background-color: var(--surface);
+    padding: var(--row-pad-y) var(--row-pad-x);
+    background: linear-gradient(180deg, var(--surface-elevated, var(--surface)) 0%, var(--surface) 100%);
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -163,6 +163,11 @@ function formatDate(dateStr: string | null | undefined): string {
     color: var(--text);
     opacity: 0.6;
     white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .appearance-item__meta { min-width: 0; }
+    .appearance-item__date, .appearance-item__outlet { white-space: normal; overflow-wrap: anywhere; }
   }
 
   @media (max-width: 500px) {
