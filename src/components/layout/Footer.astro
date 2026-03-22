@@ -1,6 +1,7 @@
 ---
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../../keystatic.config';
+import ButtonWall from '../shared/ButtonWall.astro';
 
 const reader = createReader(process.cwd(), keystaticConfig);
 const footer = await reader.singletons.footer.read();
@@ -8,8 +9,7 @@ const footer = await reader.singletons.footer.read();
 
 <footer class="site-footer" id="footer">
   <div class="footer-inner">
-    <!-- ButtonWall slot — added in Task 13 -->
-    <slot name="button-wall" />
+    <ButtonWall />
 
     <div class="footer-content">
       <div class="footer-contact">
