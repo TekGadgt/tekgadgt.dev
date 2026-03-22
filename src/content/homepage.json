@@ -6,6 +6,6 @@
   "primaryCtaUrl": "/work",
   "secondaryCtaLabel": "Get in Touch",
   "secondaryCtaUrl": "#footer",
-  "heroImage": null,
+  "heroImage": "/images/heroImage.jpg",
   "metaDescription": "Ryan McGovern — developer and community builder. Projects, blog, and community work."
 }
