@@ -1,0 +1,54 @@
+---
+import '../../styles/theme.css';
+import '../../styles/global.css';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Ryan McGovern — developer and community builder.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const theme = stored || preferred;
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <ThemeToggle />
+    <slot />
+    <script>
+      const toggle = document.querySelector('[data-theme-toggle]');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          // Update toggle visual state
+          toggle.querySelectorAll('[data-theme-option]').forEach(el => {
+            el.classList.toggle('active', el.dataset.themeOption === next);
+          });
+        });
+        // Set initial state
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        toggle.querySelectorAll('[data-theme-option]').forEach(el => {
+          el.classList.toggle('active', el.dataset.themeOption === current);
+        });
+      }
+    </script>
+  </body>
+</html>

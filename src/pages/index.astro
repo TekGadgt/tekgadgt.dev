@@ -1,19 +1,10 @@
 ---
-import '../styles/theme.css';
-import '../styles/global.css';
+import BaseLayout from '../components/layout/BaseLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Ryan McGovern</title>
-  </head>
-  <body>
+<BaseLayout title="Ryan McGovern">
+  <main>
     <h1>Hello World</h1>
     <p>Site is under construction.</p>
-  </body>
-</html>
+  </main>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+// ThemeToggle — chunky segmented control for LIGHT/DARK
+// JS is handled by BaseLayout; this component renders HTML only.
+---
+
+<div class="theme-toggle" data-theme-toggle>
+  <button class="theme-toggle__segment" data-theme-option="light">
+    LIGHT
+  </button>
+  <button class="theme-toggle__segment" data-theme-option="dark">
+    DARK
+  </button>
+</div>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    border: var(--border-width) solid var(--border);
+    box-shadow: var(--shadow);
+    font-family: var(--font-retro);
+    background-color: var(--surface);
+  }
+
+  .theme-toggle__segment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-retro);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15ms, color 0.15ms;
+    border-radius: var(--radius);
+  }
+
+  /* Divider between the two segments */
+  .theme-toggle__segment:first-child {
+    border-right: var(--border-width) solid var(--border);
+  }
+
+  /* Active state — filled with accent-primary */
+  .theme-toggle__segment.active {
+    background-color: var(--accent-primary);
+    color: var(--text);
+    font-weight: bold;
+  }
+
+  .theme-toggle__segment:hover:not(.active) {
+    background-color: var(--muted);
+  }
+</style>
