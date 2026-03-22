@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "orgName": "Late Night Builders",
+      "role": "Organizer",
+      "description": "Builder meetup community.",
+      "url": "",
+      "status": "active",
+      "featured": true
+    },
+    {
+      "orgName": "AI Collective",
+      "role": "Online Community Lead",
+      "description": "Local AI community.",
+      "url": "",
+      "status": "active",
+      "featured": true
+    }
+  ]
+}
