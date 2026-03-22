@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const uses = await reader.singletons.uses.read();
+const categories = uses?.categories ?? [];
+---
+
+<BaseLayout
+  title="Uses — Ryan McGovern"
+  description="The tools, hardware, and software Ryan McGovern uses day to day."
+>
+  <main class="uses-page">
+    <div class="uses-inner">
+      <header class="uses-header">
+        <h1 class="uses-heading">Uses</h1>
+        <p class="uses-subhead">
+          The gear, software, and services I rely on.
+        </p>
+      </header>
+
+      {categories.length === 0 ? (
+        <p class="uses-empty">Nothing listed yet.</p>
+      ) : (
+        <div class="uses-categories">
+          {categories.map(category => (
+            <section class="uses-category">
+              <h2 class="uses-category__name">{category.name}</h2>
+              <ul class="uses-items">
+                {category.items.map(item => (
+                  <li class="uses-item">
+                    <div class="uses-item__main">
+                      {item.url ? (
+                        <a
+                          href={item.url}
+                          class="uses-item__name"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.name}
+                          <span class="uses-item__external" aria-hidden="true">&#8599;</span>
+                        </a>
+                      ) : (
+                        <span class="uses-item__name uses-item__name--no-link">{item.name}</span>
+                      )}
+                    </div>
+                    {item.description && (
+                      <p class="uses-item__description">{item.description}</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      )}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .uses-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .uses-inner {
+    max-width: var(--prose-width);
+    margin: 0 auto;
+  }
+
+  .uses-header {
+    margin-bottom: 2.5rem;
+    border-bottom: var(--border-width) solid var(--border);
+    padding-bottom: 1.25rem;
+  }
+
+  .uses-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .uses-subhead {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text);
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .uses-empty {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--text);
+    opacity: 0.6;
+  }
+
+  .uses-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .uses-category__name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: var(--border-width) solid var(--border);
+  }
+
+  .uses-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .uses-item {
+    border: var(--border-width) solid var(--border);
+    border-top: none;
+    padding: 0.875rem 1rem;
+    background-color: var(--surface);
+    transition: background-color 0.1s;
+  }
+
+  .uses-items .uses-item:first-child {
+    border-top: var(--border-width) solid var(--border);
+  }
+
+  .uses-item:hover {
+    background-color: var(--muted);
+  }
+
+  .uses-item__main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .uses-item__name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  a.uses-item__name:hover {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .uses-item__external {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-left: 0.125rem;
+  }
+
+  .uses-item__description {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text);
+    opacity: 0.65;
+    margin: 0.25rem 0 0;
+    line-height: 1.5;
+  }
+</style>
