@@ -1,12 +1,7 @@
 import { config, collection, singleton, fields } from '@keystatic/core';
 
 export default config({
-  storage: import.meta.env.DEV
-    ? { kind: 'local' }
-    : {
-        kind: 'github',
-        repo: 'TekGadgt/tekgadgt.dev' as const,
-      },
+  storage: { kind: 'local' },
   singletons: {
     homepage: singleton({
       label: 'Homepage',
