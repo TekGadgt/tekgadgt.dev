@@ -7,9 +7,10 @@ interface Props {
   tags?: string[];
   image?: string | null;
   description?: string;
+  readingTime?: number;
 }
 
-const { title, date, tags = [], image, description } = Astro.props;
+const { title, date, tags = [], image, description, readingTime } = Astro.props;
 
 const formatted = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -23,6 +24,9 @@ const formatted = new Intl.DateTimeFormat('en-US', {
   <div class="post-header__inner">
     <div class="post-header__meta">
       <time class="post-header__date" datetime={date}>{formatted}</time>
+      {readingTime && (
+        <span class="post-header__reading-time">{readingTime} min read</span>
+      )}
       {tags.length > 0 && (
         <div class="post-header__tags">
           {tags.map(tag => <Chip label={tag} variant="primary" />)}
@@ -68,6 +72,20 @@ const formatted = new Intl.DateTimeFormat('en-US', {
     color: var(--text);
     opacity: 0.6;
     text-transform: uppercase;
+  }
+
+  .post-header__reading-time {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+
+  .post-header__reading-time::before {
+    content: '·';
+    margin-right: 0.75rem;
   }
 
   .post-header__tags {

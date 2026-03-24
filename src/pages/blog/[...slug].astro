@@ -29,6 +29,11 @@ if (!post) {
 const contentResult = await post.content();
 const renderable = Markdoc.transform(contentResult.node);
 const contentHtml = Markdoc.renderers.html(renderable);
+
+// Calculate reading time (~200 words per minute)
+const plainText = contentHtml.replace(/<[^>]*>/g, '');
+const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
 <BaseLayout title={`${post.title} — Ryan McGovern`} description={post.description}>
@@ -40,6 +45,7 @@ const contentHtml = Markdoc.renderers.html(renderable);
         tags={post.tags as string[]}
         image={post.image ?? null}
         description={post.description}
+        readingTime={readingTime}
       />
       <article class="prose" set:html={contentHtml} />
     </div>
