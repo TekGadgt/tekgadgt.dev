@@ -1,15 +1,15 @@
 {
-  "email": "placeholder@example.com",
-  "calUrl": "https://cal.com/placeholder",
+  "email": "ryan@tekgadgt.com",
+  "calUrl": "https://cal.com/tekgadgt",
   "socialLinks": [
     {
       "platform": "GitHub",
-      "url": "https://github.com/placeholder",
+      "url": "https://github.com/tekgadgt",
       "icon": "github"
     },
     {
       "platform": "LinkedIn",
-      "url": "https://linkedin.com/in/placeholder",
+      "url": "https://linkedin.com/in/ryan-mcgovern-tekgadgt",
       "icon": "linkedin"
     }
   ]
