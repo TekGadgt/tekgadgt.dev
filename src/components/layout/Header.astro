@@ -131,10 +131,10 @@ function isActive(href: string): boolean {
 
   .nav-link--active {
     background-color: var(--accent-primary);
-    border-color: var(--border);
+    border-color: var(--border-on-accent);
     color: var(--text-on-accent);
     font-weight: bold;
-    box-shadow: 2px 2px 0 var(--border);
+    box-shadow: 2px 2px 0 var(--border-on-accent);
   }
 
   .nav-link:focus-visible {
@@ -215,7 +215,7 @@ function isActive(href: string): boolean {
     .nav-link--active {
       border: none;
       box-shadow: none;
-      border-left: 4px solid var(--border);
+      border-left: 4px solid var(--border-on-accent);
     }
 
     .header-inner {

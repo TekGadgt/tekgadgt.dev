@@ -11,6 +11,7 @@
   --text: #121212;
   --muted: #ece7dc;
   --border: #121212;
+  --border-on-accent: #121212;
   --accent-primary: #FFD400;
   --accent-secondary: #19B6FF;
   --accent-tertiary: #FF5C9A;
@@ -78,6 +79,7 @@
   --text: #F5F1E8;
   --muted: #1a1a1a;
   --border: #F5F1E8;
+  --border-on-accent: #121212;
   --accent-primary: #FFD400;
   --accent-secondary: #5FD3FF;
   --accent-tertiary: #FF7FB1;
