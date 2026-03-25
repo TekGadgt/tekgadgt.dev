@@ -86,8 +86,13 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
   }
 
   .not-found__home:hover {
-    transform: translate(-3px, -3px);
+    transform: translate(2px, 2px);
     box-shadow: var(--shadow-hover);
+  }
+
+  .not-found__home:active {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: none;
   }
 
   .not-found__home:focus-visible {

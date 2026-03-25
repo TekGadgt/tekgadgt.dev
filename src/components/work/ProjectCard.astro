@@ -56,6 +56,11 @@ const cardProps = url
     box-shadow: var(--shadow-hover);
   }
 
+  a.project-card:active {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: none;
+  }
+
   a.project-card:focus-visible {
     outline: var(--border-width) solid var(--accent-primary);
     outline-offset: 2px;

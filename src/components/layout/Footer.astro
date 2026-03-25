@@ -99,6 +99,11 @@ const footer = await reader.singletons.footer.read();
     transform: translate(2px, 2px);
   }
 
+  .footer-link:active {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: none;
+  }
+
   .footer-link:focus-visible {
     outline: var(--border-width) solid var(--accent-secondary);
     outline-offset: 2px;

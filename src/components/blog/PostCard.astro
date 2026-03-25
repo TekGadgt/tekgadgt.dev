@@ -56,6 +56,11 @@ const formatted = new Intl.DateTimeFormat('en-US', {
     box-shadow: var(--shadow-hover);
   }
 
+  .post-card:active {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: none;
+  }
+
   .post-card:focus-visible {
     outline: var(--border-width) solid var(--accent-primary);
     outline-offset: 2px;
