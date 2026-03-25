@@ -23,6 +23,10 @@ const homepage = await reader.singletons.homepage.read();
             </a>
           )}
         </div>
+
+        <div class="hero-hire-callout">
+          Available for Hire
+        </div>
       </div>
 
       {homepage?.heroImage && (
@@ -85,6 +89,10 @@ const homepage = await reader.singletons.homepage.read();
     .hero-ctas {
       justify-content: center;
     }
+
+    .hero-hire-callout {
+      align-self: center;
+    }
   }
 
   .hero-heading {
@@ -120,6 +128,32 @@ const homepage = await reader.singletons.homepage.read();
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
+  }
+
+  .hero-hire-callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.55rem 0.85rem;
+    background: var(--accent-primary);
+    color: #0a0a0a;
+    border: var(--border-width) solid var(--border-on-accent);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-hard);
+    font-family: var(--font-retro);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .hero-hire-callout::before {
+    content: "";
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--success);
+    border: var(--border-width) solid var(--border-on-accent);
   }
 
   /* Neobrutalist button */
