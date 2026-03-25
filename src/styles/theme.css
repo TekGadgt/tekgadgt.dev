@@ -12,6 +12,7 @@
   --muted: #ece7dc;
   --border: #121212;
   --border-on-accent: #121212;
+  --border-divider: #121212;
   --accent-primary: #FFD400;
   --accent-secondary: #19B6FF;
   --accent-tertiary: #FF5C9A;
@@ -37,7 +38,7 @@
   --chip-danger-fg: #fff;
 
   /* Borders */
-  --border-width: 3px;
+  --border-width: 2px;
 
   /* Corners — square (neobrutalism) */
   --radius: 0;
@@ -73,27 +74,28 @@
 
 [data-theme="dark"] {
   /* Colors — Dark Theme */
-  --bg: #121212;
-  --surface: #262626;
-  --surface-elevated: #303030;
+  --bg: #1f1f1f;
+  --surface: #323232;
+  --surface-elevated: #3c3c3c;
   --text: #F5F1E8;
-  --muted: #1a1a1a;
-  --border: #F5F1E8;
-  --border-on-accent: #121212;
+  --muted: #272727;
+  --border: #0a0a0a;
+  --border-on-accent: #0a0a0a;
+  --border-divider: #F5F1E8;
   --accent-primary: #FFD400;
   --accent-secondary: #5FD3FF;
   --accent-tertiary: #FF7FB1;
   --success: #3DDC84;
   --danger: #FF5E6C;
 
-  /* Shadows — mid-tone dark shadow, visible on both bg and surfaces without clashing with yellow/light borders */
-  --shadow-hard: #4a4a4a;
+  /* Shadows — semi-transparent black, distinguishable from solid borders */
+  --shadow-hard: rgba(0, 0, 0, 0.7);
   --shadow-ambient: rgba(0, 0, 0, 0.45);
 
   /* Chip tokens — dark mode */
-  --chip-bg: #1d1d1d;
+  --chip-bg: #272727;
   --chip-fg: #F5F1E8;
-  --chip-border: #F5F1E8;
+  --chip-border: #0a0a0a;
   --chip-featured-bg: #FFD400;
   --chip-featured-fg: #121212;
   --chip-active-bg: #3DDC84;
@@ -101,7 +103,7 @@
   --chip-danger-bg: #FF5E6C;
   --chip-danger-fg: #2f0d11;
 
-  --surface-subtle: #2a2a2a;
+  --surface-subtle: #353535;
   --link: var(--accent-secondary);
   --link-hover: var(--accent-primary);
 }

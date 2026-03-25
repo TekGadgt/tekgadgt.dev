@@ -127,32 +127,50 @@ const footer = await reader.singletons.footer.read();
     }
   }
 
-  @keyframes contact-highlight {
-    0% { background: var(--accent-primary); }
-    35% { background: var(--accent-primary); }
-    100% { background: transparent; }
+  @keyframes link-pulse {
+    0%, 40% {
+      background-color: var(--accent-primary);
+      color: var(--text-on-accent);
+      transform: translate(-1px, -1px);
+      box-shadow: var(--shadow);
+    }
+    100% {
+      background-color: transparent;
+      color: var(--text);
+      transform: translate(0, 0);
+    }
   }
 
-  .footer-contact.highlight {
-    animation: contact-highlight 1200ms ease-out 1;
-    padding: 0.5rem;
-    margin: -0.5rem;
+  .footer-link.highlight {
+    animation: link-pulse 800ms ease-out 1;
   }
 </style>
 
 <script>
+  let pending = false;
+
   function highlightContact() {
-    if (window.location.hash === '#footer' || window.location.hash === '#contact') {
-      const contact = document.getElementById('contact');
-      if (contact) {
-        contact.classList.add('highlight');
-        contact.addEventListener('animationend', () => {
-          contact.classList.remove('highlight');
-        }, { once: true });
-      }
-    }
+    if (pending) return;
+    pending = true;
+    const links = document.querySelectorAll('#contact .footer-link');
+    links.forEach(link => {
+      link.classList.remove('highlight');
+      void (link as HTMLElement).offsetWidth;
+      link.classList.add('highlight');
+      link.addEventListener('animationend', () => {
+        link.classList.remove('highlight');
+        pending = false;
+      }, { once: true });
+    });
   }
 
-  highlightContact();
-  window.addEventListener('hashchange', highlightContact);
+  document.querySelectorAll('a[href="#footer"], a[href="#contact"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(highlightContact, 600);
+    });
+  });
+
+  if (window.location.hash === '#footer' || window.location.hash === '#contact') {
+    highlightContact();
+  }
 </script>

@@ -14,7 +14,6 @@ function formatDate(dateStr: string | null | undefined): string {
 ---
 
 <section class="experience-section">
-  <h2 class="section-title">Experience</h2>
   <div class="timeline">
     {items.map(item => (
       <article class="timeline-entry">
@@ -63,15 +62,6 @@ function formatDate(dateStr: string | null | undefined): string {
 <style>
   .experience-section {
     margin-bottom: 3rem;
-  }
-
-  .section-title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    letter-spacing: -0.02em;
-    margin: 0 0 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: var(--border-width) solid var(--border);
   }
 
   .timeline {

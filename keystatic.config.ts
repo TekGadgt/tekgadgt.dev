@@ -20,6 +20,7 @@ export default config({
           directory: 'public/images',
           publicPath: '/images/',
         }),
+        availableForHire: fields.checkbox({ label: 'Available for Hire', defaultValue: false }),
         metaDescription: fields.text({ label: 'Meta Description', multiline: true }),
       },
     }),
