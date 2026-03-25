@@ -22,9 +22,6 @@ const homepage = await reader.singletons.homepage.read();
               {homepage.secondaryCtaLabel}
             </a>
           )}
-          <a href="/about" class="hero-read-more">
-            Read full story &rarr;
-          </a>
         </div>
       </div>
 
@@ -166,21 +163,4 @@ const homepage = await reader.singletons.homepage.read();
     color: var(--text-on-accent);
   }
 
-  .hero-read-more {
-    font-family: var(--font-body);
-    font-size: 0.9375rem;
-    color: var(--text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 2px;
-  }
-
-  .hero-read-more:hover {
-    color: var(--link-hover);
-  }
-
-  .hero-read-more:focus-visible {
-    outline: var(--border-width) solid var(--accent-primary);
-    outline-offset: 2px;
-  }
 </style>
