@@ -22,7 +22,7 @@
   --shadow-ambient: rgba(0, 0, 0, 0.18);
   --shadow-offset: 4px;
   --shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-hard);
-  --shadow-hover: 6px 6px 0 var(--shadow-hard);
+  --shadow-hover: 2px 2px 0 var(--shadow-hard);
 
   /* Chip tokens */
   --chip-bg: #fffaf0;

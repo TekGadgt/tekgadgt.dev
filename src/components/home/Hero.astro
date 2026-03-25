@@ -143,12 +143,12 @@ const homepage = await reader.singletons.homepage.read();
   }
 
   .btn:hover {
-    transform: translate(-2px, -2px);
+    transform: translate(2px, 2px);
     box-shadow: var(--shadow-hover);
   }
 
   .btn:active {
-    transform: translate(2px, 2px);
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
     box-shadow: none;
   }
 
