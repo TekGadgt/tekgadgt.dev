@@ -9,7 +9,7 @@ const footer = await reader.singletons.footer.read();
     <ButtonWall />
 
     <div class="footer-content">
-      <div class="footer-contact">
+      <div class="footer-contact" id="contact">
         {footer?.email && (
           <a href={`mailto:${footer.email}`} class="footer-link footer-email">
             {footer.email}
@@ -95,7 +95,6 @@ const footer = await reader.singletons.footer.read();
   .footer-link:hover {
     background-color: var(--accent-primary);
     color: var(--text-on-accent);
-    border-color: var(--border-on-accent);
     box-shadow: var(--shadow-hover);
     transform: translate(2px, 2px);
   }
@@ -127,4 +126,33 @@ const footer = await reader.singletons.footer.read();
       margin-left: 0;
     }
   }
+
+  @keyframes contact-highlight {
+    0% { background: var(--accent-primary); }
+    35% { background: var(--accent-primary); }
+    100% { background: transparent; }
+  }
+
+  .footer-contact.highlight {
+    animation: contact-highlight 1200ms ease-out 1;
+    padding: 0.5rem;
+    margin: -0.5rem;
+  }
 </style>
+
+<script>
+  function highlightContact() {
+    if (window.location.hash === '#footer' || window.location.hash === '#contact') {
+      const contact = document.getElementById('contact');
+      if (contact) {
+        contact.classList.add('highlight');
+        contact.addEventListener('animationend', () => {
+          contact.classList.remove('highlight');
+        }, { once: true });
+      }
+    }
+  }
+
+  highlightContact();
+  window.addEventListener('hashchange', highlightContact);
+</script>
