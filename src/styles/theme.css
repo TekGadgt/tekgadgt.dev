@@ -84,8 +84,8 @@
   --success: #3DDC84;
   --danger: #FF5E6C;
 
-  /* Shadows — lighter hard shadow for dark mode */
-  --shadow-hard: #d9d3c6;
+  /* Shadows — mid-tone dark shadow, visible on both bg and surfaces without clashing with yellow/light borders */
+  --shadow-hard: #4a4a4a;
   --shadow-ambient: rgba(0, 0, 0, 0.45);
 
   /* Chip tokens — dark mode */
