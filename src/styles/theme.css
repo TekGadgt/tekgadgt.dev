@@ -53,6 +53,7 @@
 
   /* Prose */
   --prose-width: 70ch;
+  --page-width: 960px;
 
   /* Text on accent backgrounds */
   --text-on-accent: #121212;

@@ -41,7 +41,7 @@ const community = await reader.singletons.community.read();
 
 <style>
   .work-page {
-    max-width: 1200px;
+    max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -85,7 +85,7 @@ const community = await reader.singletons.community.read();
     gap: 1.25rem;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .work-grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
