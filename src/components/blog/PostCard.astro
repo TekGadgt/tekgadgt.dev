@@ -116,17 +116,32 @@ const formatted = new Intl.DateTimeFormat('en-US', {
     gap: 0.375rem;
   }
 
-  .post-card__arrow {
+  .post-card::after {
+    content: "";
     position: absolute;
-    bottom: 0.875rem;
-    right: 1rem;
-    font-size: 1.125rem;
-    opacity: 0.4;
-    transition: opacity 0.1s, transform 0.1s;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 3rem 3rem;
+    border-color: transparent transparent #1a5fd4 transparent;
+    pointer-events: none;
   }
 
-  .post-card:hover .post-card__arrow {
+  .post-card:visited::after {
+    border-color: transparent transparent #7B2D8E transparent;
+  }
+
+  .post-card__arrow {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.45rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
     opacity: 1;
-    transform: translateX(3px);
+    z-index: 1;
+    line-height: 1;
   }
 </style>
