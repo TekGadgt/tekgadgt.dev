@@ -9,7 +9,7 @@ const footer = await reader.singletons.footer.read();
     <ButtonWall />
 
     <div class="footer-content">
-      <div class="footer-contact" id="contact">
+      <div class="footer-contact">
         {footer?.email && (
           <a href={`mailto:${footer.email}`} class="footer-link footer-email">
             {footer.email}
@@ -127,50 +127,4 @@ const footer = await reader.singletons.footer.read();
     }
   }
 
-  @keyframes link-pulse {
-    0%, 40% {
-      background-color: var(--accent-primary);
-      color: var(--text-on-accent);
-      transform: translate(-1px, -1px);
-      box-shadow: var(--shadow);
-    }
-    100% {
-      background-color: transparent;
-      color: var(--text);
-      transform: translate(0, 0);
-    }
-  }
-
-  .footer-link.highlight {
-    animation: link-pulse 800ms ease-out 1;
-  }
 </style>
-
-<script>
-  let pending = false;
-
-  function highlightContact() {
-    if (pending) return;
-    pending = true;
-    const links = document.querySelectorAll('#contact .footer-link');
-    links.forEach(link => {
-      link.classList.remove('highlight');
-      void (link as HTMLElement).offsetWidth;
-      link.classList.add('highlight');
-      link.addEventListener('animationend', () => {
-        link.classList.remove('highlight');
-        pending = false;
-      }, { once: true });
-    });
-  }
-
-  document.querySelectorAll('a[href="#footer"], a[href="#contact"]').forEach(link => {
-    link.addEventListener('click', () => {
-      setTimeout(highlightContact, 600);
-    });
-  });
-
-  if (window.location.hash === '#footer' || window.location.hash === '#contact') {
-    highlightContact();
-  }
-</script>
