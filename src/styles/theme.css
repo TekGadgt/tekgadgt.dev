@@ -14,6 +14,7 @@
   --border-on-accent: #121212;
   --border-divider: #121212;
   --accent-primary: #FFD400;
+  --accent-primary-text: #8A5A00;
   --accent-secondary: #19B6FF;
   --accent-tertiary: #FF5C9A;
   --success: #1FA85B;
@@ -83,6 +84,7 @@
   --border-on-accent: #0a0a0a;
   --border-divider: #F5F1E8;
   --accent-primary: #FFD400;
+  --accent-primary-text: #FFD400;
   --accent-secondary: #5FD3FF;
   --accent-tertiary: #FF7FB1;
   --success: #3DDC84;
