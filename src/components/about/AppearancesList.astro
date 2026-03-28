@@ -50,7 +50,7 @@ function formatDate(dateStr: string | null | undefined): string {
                 rel="noopener noreferrer"
               >
                 {item.title}
-                <span class="appearance-item__external" aria-hidden="true">&#8599;</span>
+                <svg class="appearance-item__external" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </a>
             ) : (
               <span class="appearance-item__title appearance-item__title--no-link">
@@ -149,9 +149,10 @@ function formatDate(dateStr: string | null | undefined): string {
   }
 
   .appearance-item__external {
-    font-size: 0.875rem;
+    display: inline-block;
+    vertical-align: middle;
     opacity: 0.5;
-    margin-left: 0.125rem;
+    margin-left: 0.25rem;
   }
 
   .appearance-item__outlet {

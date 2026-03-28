@@ -37,7 +37,7 @@ const categories = uses?.categories ?? [];
                           rel="noopener noreferrer"
                         >
                           {item.name}
-                          <span class="uses-item__external" aria-hidden="true">&#8599;</span>
+                          <svg class="uses-item__external" aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                         </a>
                       ) : (
                         <span class="uses-item__name uses-item__name--no-link">{item.name}</span>
@@ -154,9 +154,10 @@ const categories = uses?.categories ?? [];
   }
 
   .uses-item__external {
-    font-size: 0.75rem;
+    display: inline-block;
+    vertical-align: middle;
     opacity: 0.5;
-    margin-left: 0.125rem;
+    margin-left: 0.25rem;
   }
 
   .uses-item__description {

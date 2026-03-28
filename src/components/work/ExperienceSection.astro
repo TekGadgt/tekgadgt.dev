@@ -173,12 +173,15 @@ function formatDate(dateStr: string | null | undefined): string {
   }
 
   .timeline-impact-item::before {
-    content: '→';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--accent-primary-text);
-    font-size: 0.875rem;
-    font-weight: bold;
+    top: calc(0.9375rem * var(--line-height-body) / 2 - 0.75rem / 2);
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--accent-primary-text);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3Cpolyline points='12 5 19 12 12 19'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3Cpolyline points='12 5 19 12 12 19'/%3E%3C/svg%3E") no-repeat center / contain;
   }
 
   .timeline-tech {

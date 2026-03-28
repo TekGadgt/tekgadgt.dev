@@ -34,7 +34,7 @@ const cardProps = url
       </div>
     )}
   </div>
-  {url && <span class="card-external-hint" aria-hidden="true">&#8599;</span>}
+  {url && <svg class="card-external-hint" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>}
 </CardTag>
 
 <style>
@@ -141,13 +141,9 @@ const cardProps = url
 
   .card-external-hint {
     position: absolute;
-    bottom: 0.5rem;
-    right: 0.45rem;
-    font-size: 1.1rem;
-    font-weight: bold;
+    bottom: 0.45rem;
+    right: 0.4rem;
     color: #fff;
-    opacity: 1;
     z-index: 1;
-    line-height: 1;
   }
 </style>

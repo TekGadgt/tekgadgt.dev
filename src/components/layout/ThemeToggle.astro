@@ -1,62 +1,68 @@
 ---
-// ThemeToggle — chunky segmented control for LIGHT/DARK
-// JS is handled by BaseLayout; this component renders HTML only.
+// ThemeToggle — round icon button with sun/moon SVGs
+// Cycles between themes on click. JS is handled by BaseLayout.
 ---
 
-<div class="theme-toggle" data-theme-toggle>
-  <button class="theme-toggle__segment" data-theme-option="light">
-    LIGHT
-  </button>
-  <button class="theme-toggle__segment" data-theme-option="dark">
-    DARK
-  </button>
-</div>
+<button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+  <svg class="theme-toggle__icon theme-toggle__sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+  <svg class="theme-toggle__icon theme-toggle__moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
 
 <style>
   .theme-toggle {
     display: inline-flex;
-    border: var(--border-width) solid var(--border);
-    box-shadow: var(--shadow);
-    font-family: var(--font-retro);
-    background-color: var(--surface);
-  }
-
-  .theme-toggle__segment {
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
-    font-family: var(--font-retro);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
     color: var(--text);
-    background-color: transparent;
-    border: none;
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
     cursor: pointer;
-    transition: background-color 150ms, color 150ms;
-    border-radius: var(--radius);
+    transition: background-color 0.1s, color 0.1s, box-shadow 0.1s, transform 0.1s;
   }
 
-  .theme-toggle__segment:focus-visible {
+  .theme-toggle:hover {
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
+    box-shadow: var(--shadow-hover);
+    transform: translate(2px, 2px);
+  }
+
+  .theme-toggle:active {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: none;
+  }
+
+  .theme-toggle:focus-visible {
     outline: var(--border-width) solid var(--accent-secondary);
     outline-offset: 2px;
   }
 
-  /* Divider between the two segments */
-  .theme-toggle__segment:first-child {
-    border-right: var(--border-width) solid var(--border);
+  .theme-toggle__icon {
+    display: none;
   }
 
-  /* Active state driven by data-theme on <html> — no JS class needed */
-  :global([data-theme="light"]) [data-theme-option="light"],
-  :global([data-theme="dark"]) [data-theme-option="dark"] {
-    background-color: var(--accent-primary);
-    color: var(--text-on-accent);
-    font-weight: bold;
+  :global([data-theme="light"]) .theme-toggle__moon {
+    display: block;
   }
 
-  :global([data-theme="light"]) [data-theme-option="dark"]:hover,
-  :global([data-theme="dark"]) [data-theme-option="light"]:hover {
-    background-color: var(--muted);
+  :global([data-theme="dark"]) .theme-toggle__sun {
+    display: block;
   }
 </style>

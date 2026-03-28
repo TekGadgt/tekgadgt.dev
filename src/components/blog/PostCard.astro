@@ -36,7 +36,7 @@ const formatted = new Intl.DateTimeFormat('en-US', {
       </div>
     )}
   </div>
-  <span class="post-card__arrow" aria-hidden="true">&#8594;</span>
+  <svg class="post-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 </a>
 
 <style>
@@ -135,13 +135,9 @@ const formatted = new Intl.DateTimeFormat('en-US', {
 
   .post-card__arrow {
     position: absolute;
-    bottom: 0.35rem;
-    right: 0.3rem;
-    font-size: 1.3rem;
-    font-weight: bold;
+    bottom: 0.4rem;
+    right: 0.35rem;
     color: #fff;
-    opacity: 1;
     z-index: 1;
-    line-height: 1;
   }
 </style>
