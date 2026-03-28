@@ -11,11 +11,10 @@ const community = await reader.singletons.community.read();
 
 <BaseLayout title="Work — Ryan McGovern" description="Projects, community work, and professional experience.">
   <div class="work-page">
-    <div class="page-header">
-      <h1 class="page-title">Work</h1>
-    </div>
-
     <div class="page-inner">
+      <div class="page-header">
+        <h1 class="page-title">Work</h1>
+      </div>
       <ExperienceSection />
 
       <div class="work-grid">
@@ -41,13 +40,16 @@ const community = await reader.singletons.community.read();
 
 <style>
   .work-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .page-inner {
     max-width: var(--page-width);
     margin: 0 auto;
-    padding: 0 1.5rem;
   }
 
   .page-header {
-    padding: 3rem 0 2rem;
+    padding-bottom: 2rem;
     border-bottom: var(--border-width) solid var(--border-divider);
     margin-bottom: 2.5rem;
   }
@@ -58,10 +60,6 @@ const community = await reader.singletons.community.read();
     line-height: var(--line-height-heading);
     letter-spacing: -0.03em;
     margin: 0;
-  }
-
-  .page-inner {
-    padding-bottom: 4rem;
   }
 
   .work-grid {
