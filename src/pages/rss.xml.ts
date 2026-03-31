@@ -1,4 +1,3 @@
-export const prerender = true;
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { reader } from '../lib/reader';

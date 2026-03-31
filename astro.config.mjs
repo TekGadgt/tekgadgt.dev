@@ -6,12 +6,10 @@ import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 
 // https://astro.build/config
-// Using 'server' output so Keystatic's admin routes work on Netlify in production.
-// All regular pages export prerender = true to stay statically generated.
-// Keystatic's admin UI requires React.
+// Keystatic's admin UI requires React and server-rendered routes.
 export default defineConfig({
   site: 'https://ryanmcgovern.dev',
-  output: 'server',
+  output: 'static',
   adapter: netlify(),
   integrations: [
     react(),
