@@ -14,7 +14,7 @@ export default defineConfig({
   output: 'server',
   adapter: netlify(),
   integrations: [
-    react({ include: ['**/*.{jsx,tsx}', '**/node_modules/@keystatic/**/*.js'] }),
+    react(),
     keystatic(),
     markdoc(),
   ],
