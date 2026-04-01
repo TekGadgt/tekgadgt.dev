@@ -22,7 +22,7 @@ const contentHtml = contentResult
       </header>
 
       {contentHtml && (
-        <article class="prose ai-prose" set:html={contentHtml} />
+        <article class="prose" set:html={contentHtml} />
       )}
     </div>
   </div>
@@ -50,7 +50,4 @@ const contentHtml = contentResult
     line-height: 1;
   }
 
-  .ai-prose {
-    max-width: var(--prose-width);
-  }
 </style>

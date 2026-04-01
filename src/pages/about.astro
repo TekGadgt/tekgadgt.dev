@@ -24,7 +24,7 @@ const contentHtml = contentResult
       </header>
 
       {contentHtml && (
-        <article class="prose about-prose" set:html={contentHtml} />
+        <article class="prose" set:html={contentHtml} />
       )}
 
       <AppearancesList />
@@ -55,7 +55,4 @@ const contentHtml = contentResult
   }
 
 
-  .about-prose {
-    max-width: var(--prose-width);
-  }
 </style>
