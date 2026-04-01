@@ -158,6 +158,15 @@ export default config({
         ),
       },
     }),
+    ai: singleton({
+      label: 'AI',
+      path: 'src/content/ai',
+      format: { contentField: 'content' },
+      schema: {
+        metaDescription: fields.text({ label: 'Meta Description', multiline: true }),
+        content: fields.markdoc({ label: 'Content' }),
+      },
+    }),
     now: singleton({
       label: 'Now',
       path: 'src/content/now',

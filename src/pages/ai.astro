@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { reader } from '../lib/reader';
+import Markdoc from '@markdoc/markdoc';
+import '../styles/prose.css';
+const ai = await reader.singletons.ai.read();
+
+const contentResult = ai?.content ? await ai.content() : null;
+const contentHtml = contentResult
+  ? Markdoc.renderers.html(Markdoc.transform(contentResult.node))
+  : '';
+---
+
+<BaseLayout
+  title="AI — Ryan McGovern"
+  description={ai?.metaDescription ?? 'How Ryan McGovern uses AI as a developer.'}
+>
+  <div class="ai-page">
+    <div class="ai-inner">
+      <header class="ai-header">
+        <h1 class="ai-heading">AI</h1>
+      </header>
+
+      {contentHtml && (
+        <article class="prose ai-prose" set:html={contentHtml} />
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .ai-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .ai-inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+  }
+
+  .ai-header {
+    margin-bottom: 2rem;
+    border-bottom: var(--border-width) solid var(--border-divider);
+    padding-bottom: 1.25rem;
+  }
+
+  .ai-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+  }
+
+  .ai-prose {
+    max-width: var(--prose-width);
+  }
+</style>

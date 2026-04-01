@@ -15,49 +15,78 @@ function formatDate(dateStr: string | null | undefined): string {
 
 <section class="experience-section">
   <div class="timeline">
-    {items.map(item => (
-      <article class="timeline-entry">
-        <div class="timeline-header">
-          <div class="timeline-title-group">
-            <h3 class="timeline-role">{item.role}</h3>
-            <div class="timeline-meta">
-              {item.url ? (
-                <a href={item.url} class="timeline-company timeline-company--link" target="_blank" rel="noopener noreferrer">
-                  {item.company}
-                </a>
-              ) : (
-                <span class="timeline-company">{item.company}</span>
-              )}
-              {item.location && <span class="timeline-location">{item.location}</span>}
-              {item.employmentType && <span class="timeline-type">{item.employmentType}</span>}
+    {items.map(item => {
+      const hasDetails = item.summary || (item.impact && item.impact.length > 0) || (item.tech && item.tech.length > 0);
+      return (
+        <details class="timeline-entry">
+          <summary class="timeline-header">
+            <div class="timeline-title-group">
+              <h3 class="timeline-role">{item.role}</h3>
+              <div class="timeline-meta">
+                {item.url ? (
+                  <a href={item.url} class="timeline-company timeline-company--link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+                    {item.company}
+                  </a>
+                ) : (
+                  <span class="timeline-company">{item.company}</span>
+                )}
+                {item.location && <span class="timeline-location">{item.location}</span>}
+                {item.employmentType && <span class="timeline-type">{item.employmentType}</span>}
+              </div>
             </div>
-          </div>
-          <span class="timeline-dates">
-            {formatDate(item.startDate)} – {formatDate(item.endDate)}
-          </span>
-        </div>
+            <span class="timeline-dates">
+              {formatDate(item.startDate)} – {formatDate(item.endDate)}
+            </span>
+          </summary>
 
-        {item.summary && (
-          <p class="timeline-summary">{item.summary}</p>
-        )}
+          {hasDetails && (
+            <div class="timeline-body">
+              <div class="timeline-body-inner">
+                {item.summary && (
+                  <p class="timeline-summary">{item.summary}</p>
+                )}
 
-        {item.impact && item.impact.length > 0 && (
-          <ul class="timeline-impact">
-            {item.impact.map(point => (
-              <li class="timeline-impact-item">{point}</li>
-            ))}
-          </ul>
-        )}
+                {item.impact && item.impact.length > 0 && (
+                  <ul class="timeline-impact">
+                    {item.impact.map(point => (
+                      <li class="timeline-impact-item">{point}</li>
+                    ))}
+                  </ul>
+                )}
 
-        {item.tech && item.tech.length > 0 && (
-          <div class="timeline-tech">
-            {item.tech.map(t => <Chip label={t} />)}
-          </div>
-        )}
-      </article>
-    ))}
+                {item.tech && item.tech.length > 0 && (
+                  <div class="timeline-tech">
+                    {item.tech.map(t => <Chip label={t} />)}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </details>
+      );
+    })}
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.timeline-entry').forEach((entry) => {
+    const summary = entry.querySelector('summary');
+    if (!summary) return;
+
+    summary.addEventListener('click', (e) => {
+      if (!(entry as HTMLDetailsElement).open) return; // opening — let browser handle it
+
+      // closing — animate first, then remove open
+      e.preventDefault();
+      entry.classList.add('closing');
+
+      entry.querySelector('.timeline-body')?.addEventListener('transitionend', () => {
+        entry.classList.remove('closing');
+        (entry as HTMLDetailsElement).open = false;
+      }, { once: true });
+    });
+  });
+</script>
 
 <style>
   .experience-section {
@@ -87,13 +116,48 @@ function formatDate(dateStr: string | null | undefined): string {
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 0.75rem;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .timeline-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .timeline-header::marker {
+    display: none;
+    content: '';
+  }
+
+
+  .timeline-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+  }
+
+  .timeline-entry[open] .timeline-body {
+    grid-template-rows: 1fr;
+  }
+
+  .timeline-entry.closing .timeline-body {
+    grid-template-rows: 0fr;
+  }
+
+  .timeline-body-inner {
+    overflow: hidden;
+    padding-top: 0.75rem;
   }
 
   .timeline-role {
     font-family: var(--font-heading);
     font-size: 1.125rem;
     margin: 0 0 0.25rem;
+    transition: color 0.15s ease;
+  }
+
+  .timeline-header:hover .timeline-role {
+    color: var(--accent-primary-text, var(--accent-primary));
   }
 
   .timeline-meta {
@@ -143,6 +207,25 @@ function formatDate(dateStr: string | null | undefined): string {
     opacity: 0.65;
     white-space: nowrap;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .timeline-dates::after {
+    content: '';
+    width: 0.625rem;
+    height: 0.625rem;
+    flex-shrink: 0;
+    background-color: var(--text);
+    opacity: 0.5;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat center / contain;
+    transition: transform 0.2s ease;
+  }
+
+  .timeline-entry[open] .timeline-dates::after {
+    transform: rotate(180deg);
   }
 
   .timeline-summary {
