@@ -4,24 +4,82 @@
       "name": "cssdaily.dev",
       "description": "Daily CSS tips and challenges.",
       "url": "https://cssdaily.dev",
-      "techTags": ["CSS", "Web"],
-      "image": null,
+      "techTags": [
+        "JavaScript",
+        "TypeScript",
+        "Claude API",
+        "Tailwind",
+        "Astro",
+        "GitHub Actions",
+        "React"
+      ],
       "featured": true
     },
     {
       "name": "Conclave Chat",
       "description": "Real-time chat application.",
-      "url": "",
-      "techTags": ["JavaScript", "WebSockets"],
-      "image": null,
-      "featured": true
+      "url": "https://github.com/TekGadgt/Conclave-Chat",
+      "techTags": [
+        "JavaScript",
+        "WebSockets",
+        "Golang",
+        "LiveKit"
+      ],
+      "featured": false
     },
     {
       "name": "BuildBeat",
       "description": "Build tracking and accountability tool.",
-      "url": "",
-      "techTags": ["JavaScript"],
-      "image": null,
+      "url": "https://github.com/TekGadgt/BuildBeat",
+      "techTags": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "featured": false
+    },
+    {
+      "name": "Pantry Party",
+      "description": "AI-powered collaborative recipe generator. ",
+      "url": "https://github.com/TekGadgt/pantry-party",
+      "techTags": [
+        "Astro",
+        "React",
+        "Convex",
+        "Clerk",
+        "Claude API",
+        "OpenAI API"
+      ],
+      "featured": true
+    },
+    {
+      "name": "Leagues Relic Picker",
+      "description": "OSRS Leagues relic planning tool.",
+      "url": "https://relics.runetools.lol/",
+      "techTags": [
+        "Astro"
+      ],
+      "featured": true
+    },
+    {
+      "name": "Muse",
+      "description": "AI-powered writing prompt generator for Obsidian.",
+      "url": "https://github.com/TekGadgt/muse",
+      "techTags": [
+        "TypeScript",
+        "Claude API",
+        "OpenAI API",
+        "Obsidian.md"
+      ],
+      "featured": false
+    },
+    {
+      "name": "Web FPS Game",
+      "description": "Doom-inspired multiplayer FPS in the browser.",
+      "url": "https://web-fps-game.onrender.com/",
+      "techTags": [
+        "Three.js",
+        "JavaScript"
+      ],
       "featured": false
     }
   ]
