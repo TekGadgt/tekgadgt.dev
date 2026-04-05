@@ -7,6 +7,120 @@
           "name": "VS Code",
           "description": "Primary editor",
           "url": "https://code.visualstudio.com"
+        },
+        {
+          "name": "Claude Code",
+          "description": "Agentic coding companion",
+          "url": "https://claude.com/product/claude-code"
+        },
+        {
+          "name": "Superpowers",
+          "description": "Agentic skills framework",
+          "url": "https://github.com/obra/superpowers"
+        },
+        {
+          "name": "Warp",
+          "description": "Modern GPU terminal",
+          "url": "https://www.warp.dev/"
+        }
+      ]
+    },
+    {
+      "name": "Languages",
+      "items": [
+        {
+          "name": "Javascript",
+          "description": "Web's universal language",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        {
+          "name": "Typescript",
+          "description": "Typed JavaScript superset",
+          "url": "https://www.typescriptlang.org/"
+        },
+        {
+          "name": "Golang",
+          "description": "Concurrent systems language",
+          "url": "https://go.dev/"
+        }
+      ]
+    },
+    {
+      "name": "Frameworks & Tools",
+      "items": [
+        {
+          "name": "Astro",
+          "description": "Content-first web framework",
+          "url": "https://astro.build/"
+        },
+        {
+          "name": "React",
+          "description": "Component UI library",
+          "url": "https://react.dev/"
+        },
+        {
+          "name": "Tailwind",
+          "description": "Utility-first CSS",
+          "url": "https://tailwindcss.com/"
+        },
+        {
+          "name": "Three.js",
+          "description": "WebGL rendering library",
+          "url": "https://threejs.org/"
+        }
+      ]
+    },
+    {
+      "name": "Hardware",
+      "items": [
+        {
+          "name": "Laptops",
+          "description": "MacBook Pro 14 M5"
+        },
+        {
+          "name": "Desktop",
+          "description": "RTX 4090, i9-14900KF, 64GB DDR5"
+        },
+        {
+          "name": "Monitors",
+          "description": "2x 24 inch Samsung, 1x 27 inch LG, 1x 15 inch HP"
+        },
+        {
+          "name": "Mouse",
+          "description": "Razer Naga V2 Hyperspeed, MX Master 4"
+        },
+        {
+          "name": "Keyboard",
+          "description": "Keychron Q1 HE, Keychron K2 HE"
+        },
+        {
+          "name": "Headphones",
+          "description": "Epos H6Pro, Epos PC38X"
+        }
+      ]
+    },
+    {
+      "name": "Entertainment",
+      "items": [
+        {
+          "name": "Music",
+          "description": "Spotify"
+        },
+        {
+          "name": "Podcasts",
+          "description": "Pocket Casts"
+        },
+        {
+          "name": "Movies",
+          "description": "Apple TV+"
+        },
+        {
+          "name": "Shows",
+          "description": "Dropout, Apple TV+"
+        },
+        {
+          "name": "Books",
+          "description": "Audible, Google Play Books"
         }
       ]
     }
