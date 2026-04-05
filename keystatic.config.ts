@@ -50,6 +50,7 @@ export default config({
                 { label: 'Interview', value: 'interview' },
                 { label: 'Podcast', value: 'podcast' },
                 { label: 'Article', value: 'article' },
+                { label: 'Video', value: 'video' },
               ],
               defaultValue: 'talk',
             }),

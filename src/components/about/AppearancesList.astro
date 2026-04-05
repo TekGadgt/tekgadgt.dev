@@ -4,13 +4,14 @@ import { reader } from '../../lib/reader';
 const appearances = await reader.singletons.appearances.read();
 const items = appearances?.items ?? [];
 
-type AppearanceType = 'talk' | 'interview' | 'podcast' | 'article';
+type AppearanceType = 'talk' | 'interview' | 'podcast' | 'article' | 'video';
 
-const variantMap: Record<AppearanceType, 'primary' | 'secondary' | 'tertiary' | 'default'> = {
+const variantMap: Record<AppearanceType, 'primary' | 'secondary' | 'tertiary' | 'success' | 'default'> = {
   talk: 'primary',
   interview: 'secondary',
   podcast: 'tertiary',
   article: 'default',
+  video: 'success',
 };
 
 function formatDate(dateStr: string | null | undefined): string {
