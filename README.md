@@ -1,43 +1,45 @@
-# Astro Starter Kit: Minimal
+# ryanmcgovern.dev
+
+Personal portfolio and developer site for Ryan McGovern. Built with Astro and managed through Keystatic CMS.
+
+## Stack
+
+- [Astro 6](https://astro.build) — static site generator
+- [Keystatic](https://keystatic.com) — content management (GitHub storage mode)
+- [Markdoc](https://markdoc.dev) — content authoring format
+- [React](https://react.dev) — interactive components
+- [Netlify](https://netlify.com) — hosting and deployment
+
+## Pages
+
+| Route | Description |
+| :--- | :--- |
+| `/` | Homepage |
+| `/work` | Experience timeline and projects |
+| `/blog` | Blog index and posts |
+| `/about` | About page |
+| `/now` | What I'm up to right now |
+| `/uses` | Tools and setup |
+| `/ai` | AI usage transparency |
+| `/keystatic` | CMS admin interface |
+
+## Project Structure
+
+```
+src/
+├── components/     # Astro and React components
+├── content/        # Keystatic-managed content (JSON, Markdoc)
+├── lib/            # Utilities (Keystatic reader, helpers)
+├── pages/          # File-based routing
+└── styles/         # Global styles and design tokens
+keystatic.config.ts # CMS schema and configuration
+```
+
+## Development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install        # Install dependencies
+npm run dev        # Start dev server at localhost:4321
+npm run build      # Production build to ./dist/
+npm run preview    # Preview production build locally
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
