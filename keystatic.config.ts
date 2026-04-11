@@ -173,6 +173,7 @@ export default config({
       path: 'src/content/now',
       format: { contentField: 'content' },
       schema: {
+        lastUpdated: fields.date({ label: 'Last Updated' }),
         content: fields.markdoc({ label: 'Content' }),
       },
     }),

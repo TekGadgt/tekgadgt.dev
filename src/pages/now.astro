@@ -23,6 +23,11 @@ const contentHtml = contentResult
         <p class="now-about">
           A <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">/now page</a> is a snapshot of what I'm currently up to.
         </p>
+        {now?.lastUpdated && (
+          <time class="now-updated" datetime={now.lastUpdated}>
+            Updated: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(now.lastUpdated))}
+          </time>
+        )}
       </header>
 
       {contentHtml ? (
@@ -63,6 +68,15 @@ const contentHtml = contentResult
     color: var(--text);
     opacity: 0.65;
     margin: 0;
+  }
+
+  .now-updated {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text);
+    opacity: 0.5;
+    margin-top: 0.5rem;
   }
 
   .now-empty {
