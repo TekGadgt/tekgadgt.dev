@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "name": "ryanmcgovern.dev/tekgadgt.dev",
+      "description": "This site!  Personal portfolio and developer site for Ryan McGovern. Built with Astro and managed through Keystatic CMS. ",
+      "url": "https://github.com/TekGadgt/tekgadgt.dev",
+      "techTags": [
+        "Astro",
+        "React",
+        "Keystatic CMS"
+      ],
+      "featured": false
+    },
+    {
       "name": "cssdaily.dev",
       "description": "Daily CSS tips and challenges.",
       "url": "https://cssdaily.dev",
@@ -28,12 +39,14 @@
       "featured": false
     },
     {
-      "name": "BuildBeat",
-      "description": "Build tracking and accountability tool.",
-      "url": "https://github.com/TekGadgt/BuildBeat",
+      "name": "Muse",
+      "description": "AI-powered writing prompt generator for Obsidian.",
+      "url": "https://github.com/TekGadgt/muse",
       "techTags": [
-        "JavaScript",
-        "TypeScript"
+        "TypeScript",
+        "Claude API",
+        "OpenAI API",
+        "Obsidian.md"
       ],
       "featured": false
     },
@@ -52,6 +65,17 @@
       "featured": true
     },
     {
+      "name": "QuickLinks",
+      "description": "A Firefox extension that replaces your new tab and homepage with a customizable quick links dashboard. Organize, tag, search, and launch your most-used links with keyboard navigation, drag & drop reordering, and optional AI-powered tagging. ",
+      "url": "https://github.com/TekGadgt/QuickLinks",
+      "techTags": [
+        "Javascript",
+        "react",
+        "webextensions api"
+      ],
+      "featured": false
+    },
+    {
       "name": "Leagues Relic Picker",
       "description": "OSRS Leagues relic planning tool.",
       "url": "https://relics.runetools.lol/",
@@ -61,14 +85,23 @@
       "featured": true
     },
     {
-      "name": "Muse",
-      "description": "AI-powered writing prompt generator for Obsidian.",
-      "url": "https://github.com/TekGadgt/muse",
+      "name": "Github Daily Digest",
+      "description": "A zero-dependency GitHub Action that posts your daily GitHub activity to a Discord channel via webhook. ",
+      "url": "https://github.com/TekGadgt/github_daily_digest",
       "techTags": [
-        "TypeScript",
-        "Claude API",
-        "OpenAI API",
-        "Obsidian.md"
+        "Javascript",
+        "github actions",
+        "github api"
+      ],
+      "featured": false
+    },
+    {
+      "name": "BuildBeat",
+      "description": "Build tracking and accountability tool.",
+      "url": "https://github.com/TekGadgt/BuildBeat",
+      "techTags": [
+        "JavaScript",
+        "TypeScript"
       ],
       "featured": false
     },
