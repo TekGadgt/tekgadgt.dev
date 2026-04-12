@@ -48,7 +48,7 @@
         "OpenAI API",
         "Obsidian.md"
       ],
-      "featured": false
+      "featured": true
     },
     {
       "name": "Pantry Party",
@@ -73,7 +73,7 @@
         "react",
         "webextensions api"
       ],
-      "featured": false
+      "featured": true
     },
     {
       "name": "Leagues Relic Picker",
@@ -82,7 +82,7 @@
       "techTags": [
         "Astro"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "name": "Github Daily Digest",
