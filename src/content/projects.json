@@ -2,7 +2,7 @@
   "items": [
     {
       "name": "ryanmcgovern.dev/tekgadgt.dev",
-      "description": "This site!  Personal portfolio and developer site for Ryan McGovern. Built with Astro and managed through Keystatic CMS. ",
+      "description": "Personal portfolio and developer site. Built with Astro and managed through Keystatic CMS.",
       "url": "https://github.com/TekGadgt/tekgadgt.dev",
       "techTags": [
         "Astro",
@@ -13,7 +13,7 @@
     },
     {
       "name": "cssdaily.dev",
-      "description": "Daily CSS tips and challenges.",
+      "description": "Interactive daily CSS challenges with a live editor and Tailwind variant.",
       "url": "https://cssdaily.dev",
       "techTags": [
         "JavaScript",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Conclave Chat",
-      "description": "Real-time chat application.",
+      "description": "Self-hosted real-time chat with voice via LiveKit and federated identity via ATProto (soon).",
       "url": "https://github.com/TekGadgt/Conclave-Chat",
       "techTags": [
         "JavaScript",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Muse",
-      "description": "AI-powered writing prompt generator for Obsidian.",
+      "description": "Obsidian plugin that generates blog topic ideas from your GitHub profile using AI.",
       "url": "https://github.com/TekGadgt/muse",
       "techTags": [
         "TypeScript",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Pantry Party",
-      "description": "AI-powered collaborative recipe generator. ",
+      "description": "Collaborative recipe generator — pool ingredients with friends and get AI-suggested meals.",
       "url": "https://github.com/TekGadgt/pantry-party",
       "techTags": [
         "Astro",
@@ -66,7 +66,7 @@
     },
     {
       "name": "QuickLinks",
-      "description": "A Firefox extension that replaces your new tab and homepage with a customizable quick links dashboard. Organize, tag, search, and launch your most-used links with keyboard navigation, drag & drop reordering, and optional AI-powered tagging. ",
+      "description": "Firefox new tab replacement: searchable quick links dashboard with keyboard navigation and smart tagging.",
       "url": "https://github.com/TekGadgt/QuickLinks",
       "techTags": [
         "Javascript",
@@ -97,7 +97,7 @@
     },
     {
       "name": "BuildBeat",
-      "description": "Build tracking and accountability tool.",
+      "description": "AI-powered prompts and a public showcase to keep builder communities engaged between events.",
       "url": "https://github.com/TekGadgt/BuildBeat",
       "techTags": [
         "JavaScript",
