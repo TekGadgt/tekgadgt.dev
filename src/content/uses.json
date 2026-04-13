@@ -141,6 +141,10 @@
         {
           "name": "Books",
           "description": "Audible, Google Play Books"
+        },
+        {
+          "name": "Gaming",
+          "description": "Steam, Jagex Launcher, D&D"
         }
       ]
     }
