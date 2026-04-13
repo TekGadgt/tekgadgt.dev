@@ -54,6 +54,11 @@
           "url": "https://astro.build/"
         },
         {
+          "name": "Keystatic CMS",
+          "description": "First-class CMS for Astro",
+          "url": "https://keystatic.com/"
+        },
+        {
           "name": "React",
           "description": "Component UI library",
           "url": "https://react.dev/"
