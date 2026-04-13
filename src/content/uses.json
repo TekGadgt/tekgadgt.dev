@@ -9,6 +9,11 @@
           "url": "https://code.visualstudio.com"
         },
         {
+          "name": "Obsidian",
+          "description": "Markdown-based knowledge management with a powerful plugin ecosystem",
+          "url": "https://obsidian.md/"
+        },
+        {
           "name": "Claude Code",
           "description": "Agentic coding companion",
           "url": "https://claude.com/product/claude-code"
@@ -64,14 +69,24 @@
           "url": "https://react.dev/"
         },
         {
+          "name": "Vue / Nuxt",
+          "description": "Progressive JavaScript framework and its full-stack meta-framework",
+          "url": "https://nuxt.com/"
+        },
+        {
           "name": "Tailwind",
           "description": "Utility-first CSS",
           "url": "https://tailwindcss.com/"
         },
         {
-          "name": "Three.js",
-          "description": "WebGL rendering library",
-          "url": "https://threejs.org/"
+          "name": "Netlify",
+          "description": " Modern web hosting and deployment platform with built-in CI/CD",
+          "url": "https://www.netlify.com/"
+        },
+        {
+          "name": "GitHub Pages / Actions",
+          "description": "Free static hosting and CI/CD workflow automation",
+          "url": "https://github.com/"
         }
       ]
     },
