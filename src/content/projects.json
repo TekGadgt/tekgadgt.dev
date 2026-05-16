@@ -114,6 +114,18 @@
         "JavaScript"
       ],
       "featured": false
+    },
+    {
+      "name": "Iris",
+      "description": "Iris turns photos of whiteboard to-do lists into Markdown checklists, appended to a per-day file in your vault. Capture from camera/upload/clipboard, hierarchy detection (visual + inferred with footnoted reasoning), Anthropic + OpenAI providers. ",
+      "url": "https://github.com/TekGadgt/Iris",
+      "techTags": [
+        "TypeScript",
+        "Claude API",
+        "OpenAI API",
+        "Obsidian.md"
+      ],
+      "featured": false
     }
   ]
 }
