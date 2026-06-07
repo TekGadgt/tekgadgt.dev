@@ -11,6 +11,14 @@
       "platform": "LinkedIn",
       "url": "https://linkedin.com/in/ryan-mcgovern-tekgadgt",
       "icon": "linkedin"
+    },
+    {
+      "platform": "Bluesky",
+      "url": "https://bsky.app/profile/tekgadgt.dev"
+    },
+    {
+      "platform": "X",
+      "url": "https://x.com/tekgadgt"
     }
   ]
 }
