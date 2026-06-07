@@ -14,11 +14,13 @@
     },
     {
       "platform": "Bluesky",
-      "url": "https://bsky.app/profile/tekgadgt.dev"
+      "url": "https://bsky.app/profile/tekgadgt.dev",
+      "icon": "bluesky"
     },
     {
       "platform": "X",
-      "url": "https://x.com/tekgadgt"
+      "url": "https://x.com/tekgadgt",
+      "icon": "x"
     }
   ]
 }
