@@ -215,7 +215,11 @@ export default config({
           fields.object({
             platform: fields.text({ label: 'Platform Name', validation: { isRequired: true } }),
             url: fields.url({ label: 'URL', validation: { isRequired: true } }),
-            icon: fields.text({ label: 'Icon Identifier' }),
+            icon: fields.text({
+              label: 'Icon Identifier',
+              description:
+                'Iconify slug. A bare name uses Simple Icons (e.g. "github", "linkedin"). Use "prefix:name" for other sets (e.g. "mdi:linkedin", "tabler:brand-bluesky"). Browse at icon-sets.iconify.design. Leave blank to show the platform name as text.',
+            }),
           }),
           {
             label: 'Social Links',
