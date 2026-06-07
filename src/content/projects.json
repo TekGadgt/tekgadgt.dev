@@ -27,18 +27,6 @@
       "featured": true
     },
     {
-      "name": "Conclave Chat",
-      "description": "Self-hosted real-time chat with voice via LiveKit and federated identity via ATProto (soon).",
-      "url": "https://github.com/TekGadgt/Conclave-Chat",
-      "techTags": [
-        "JavaScript",
-        "WebSockets",
-        "Golang",
-        "LiveKit"
-      ],
-      "featured": false
-    },
-    {
       "name": "Muse",
       "description": "Obsidian plugin that generates blog topic ideas from your GitHub profile using AI.",
       "url": "https://github.com/TekGadgt/muse",
@@ -49,6 +37,18 @@
         "Obsidian.md"
       ],
       "featured": true
+    },
+    {
+      "name": "Iris",
+      "description": "Iris turns photos of whiteboard to-do lists into Markdown checklists, appended to a per-day file in your vault. Capture from camera/upload/clipboard, hierarchy detection (visual + inferred with footnoted reasoning), Anthropic + OpenAI providers. ",
+      "url": "https://github.com/TekGadgt/Iris",
+      "techTags": [
+        "TypeScript",
+        "Claude API",
+        "OpenAI API",
+        "Obsidian.md"
+      ],
+      "featured": false
     },
     {
       "name": "Pantry Party",
@@ -65,22 +65,14 @@
       "featured": true
     },
     {
-      "name": "QuickLinks",
-      "description": "Firefox new tab replacement: searchable quick links dashboard with keyboard navigation and smart tagging.",
-      "url": "https://github.com/TekGadgt/QuickLinks",
+      "name": "Conclave Chat",
+      "description": "Self-hosted real-time chat with voice via LiveKit and federated identity via ATProto (soon).",
+      "url": "https://github.com/TekGadgt/Conclave-Chat",
       "techTags": [
-        "Javascript",
-        "react",
-        "webextensions api"
-      ],
-      "featured": true
-    },
-    {
-      "name": "Leagues Relic Picker",
-      "description": "OSRS Leagues relic planning tool.",
-      "url": "https://relics.runetools.lol/",
-      "techTags": [
-        "Astro"
+        "JavaScript",
+        "WebSockets",
+        "Golang",
+        "LiveKit"
       ],
       "featured": false
     },
@@ -96,6 +88,17 @@
       "featured": false
     },
     {
+      "name": "QuickLinks",
+      "description": "Firefox new tab replacement: searchable quick links dashboard with keyboard navigation and smart tagging.",
+      "url": "https://github.com/TekGadgt/QuickLinks",
+      "techTags": [
+        "Javascript",
+        "react",
+        "webextensions api"
+      ],
+      "featured": true
+    },
+    {
       "name": "BuildBeat",
       "description": "AI-powered prompts and a public showcase to keep builder communities engaged between events.",
       "url": "https://github.com/TekGadgt/BuildBeat",
@@ -106,24 +109,21 @@
       "featured": false
     },
     {
+      "name": "Leagues Relic Picker",
+      "description": "OSRS Leagues relic planning tool.",
+      "url": "https://relics.runetools.lol/",
+      "techTags": [
+        "Astro"
+      ],
+      "featured": false
+    },
+    {
       "name": "Web FPS Game",
       "description": "Doom-inspired multiplayer FPS in the browser.",
       "url": "https://web-fps-game.onrender.com/",
       "techTags": [
         "Three.js",
         "JavaScript"
-      ],
-      "featured": false
-    },
-    {
-      "name": "Iris",
-      "description": "Iris turns photos of whiteboard to-do lists into Markdown checklists, appended to a per-day file in your vault. Capture from camera/upload/clipboard, hierarchy detection (visual + inferred with footnoted reasoning), Anthropic + OpenAI providers. ",
-      "url": "https://github.com/TekGadgt/Iris",
-      "techTags": [
-        "TypeScript",
-        "Claude API",
-        "OpenAI API",
-        "Obsidian.md"
       ],
       "featured": false
     }
