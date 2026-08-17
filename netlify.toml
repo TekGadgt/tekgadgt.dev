@@ -1,8 +1,7 @@
 [build]
-  command = "npm run build"
+  command = "pnpm build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "22"
-  NPM_FLAGS = "--legacy-peer-deps"
-
+  PNPM_VERSION = "11.22.0"

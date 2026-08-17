@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import PostHeader from '../../components/blog/PostHeader.astro';
+import ReadingProgress from '../../components/blog/ReadingProgress.astro';
 import { reader } from '../../lib/reader';
+import { shouldShowAiAssistedMessage } from '../../lib/aiDisclosure';
+import { estimateReadingTime } from '../../lib/reading';
 import Markdoc from '@markdoc/markdoc';
 import '../../styles/prose.css';
 
@@ -30,13 +33,15 @@ const contentResult = await post.content();
 const renderable = Markdoc.transform(contentResult.node);
 const contentHtml = Markdoc.renderers.html(renderable);
 
-// Calculate reading time (~200 words per minute)
+// Calculate reading time at an average adult reading speed.
 const plainText = contentHtml.replace(/<[^>]*>/g, '');
 const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
-const readingTime = Math.max(1, Math.round(wordCount / 200));
+const readingTime = estimateReadingTime(wordCount);
+const showAiAssistedMessage = shouldShowAiAssistedMessage(post.showAiAssistedMessage);
 ---
 
 <BaseLayout title={`${post.title} — Ryan McGovern`} description={post.description}>
+  <ReadingProgress />
   <div class="post-page">
     <div class="post-inner">
       <PostHeader
@@ -47,7 +52,12 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
         description={post.description}
         readingTime={readingTime}
       />
-      <article class="prose" set:html={contentHtml} />
+      {showAiAssistedMessage && (
+        <aside class="ai-assisted-message" aria-label="AI assistance disclosure">
+          This post was created with AI assistance. <a href="/ai">Read how I use AI.</a>
+        </aside>
+      )}
+      <article class="prose" data-reading-content set:html={contentHtml} />
     </div>
   </div>
 </BaseLayout>
@@ -62,5 +72,25 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
     margin: 0 auto;
   }
 
+  .ai-assisted-message {
+    margin: 0 0 2rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    background: var(--surface);
+    border: var(--border-width) solid var(--border);
+    box-shadow: var(--shadow);
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+  }
+
+  .ai-assisted-message a {
+    color: var(--link);
+    font-weight: 700;
+    text-underline-offset: 3px;
+  }
+
+  .ai-assisted-message a:hover {
+    color: var(--link-hover);
+  }
 
 </style>
