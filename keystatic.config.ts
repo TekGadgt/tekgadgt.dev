@@ -275,6 +275,11 @@ export default config({
           { label: 'Tags', itemLabel: (props) => props.value || 'New Tag' }
         ),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
+        showAiAssistedMessage: fields.checkbox({
+          label: 'Show AI-assisted disclosure',
+          description: 'Show a note linking readers to the AI transparency page.',
+          defaultValue: true,
+        }),
         image: fields.image({
           label: 'Cover Image',
           directory: 'public/images/posts',

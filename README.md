@@ -4,7 +4,7 @@ Personal portfolio and developer site for Ryan McGovern. Built with Astro and ma
 
 ## Stack
 
-- [Astro 6](https://astro.build) — static site generator
+- [Astro 7](https://astro.build) — static site generator
 - [Keystatic](https://keystatic.com) — content management (GitHub storage mode)
 - [Markdoc](https://markdoc.dev) — content authoring format
 - [React](https://react.dev) — interactive components
@@ -38,8 +38,8 @@ keystatic.config.ts # CMS schema and configuration
 ## Development
 
 ```sh
-npm install        # Install dependencies
-npm run dev        # Start dev server at localhost:4321
-npm run build      # Production build to ./dist/
-npm run preview    # Preview production build locally
+pnpm install       # Install dependencies
+pnpm dev           # Start dev server at localhost:4321
+pnpm build         # Production build to ./dist/
+pnpm preview       # Preview production build locally
 ```

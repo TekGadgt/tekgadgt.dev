@@ -1,0 +1,74 @@
+<div
+  class="reading-progress"
+  data-reading-progress
+  role="progressbar"
+  aria-label="Article reading progress"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+>
+  <div class="reading-progress__fill" data-reading-progress-fill></div>
+</div>
+
+<script>
+  import { calculateReadingProgress } from '../../lib/reading';
+
+  const progress = document.querySelector<HTMLElement>('[data-reading-progress]');
+  const fill = progress?.querySelector<HTMLElement>('[data-reading-progress-fill]');
+  const article = document.querySelector<HTMLElement>('[data-reading-content]');
+  const header = document.querySelector<HTMLElement>('.site-header');
+
+  if (progress && fill && article) {
+    let frame: number | undefined;
+
+    const update = () => {
+      frame = undefined;
+      const articleTop = article.getBoundingClientRect().top + window.scrollY;
+      const value = calculateReadingProgress({
+        scrollY: window.scrollY,
+        articleTop,
+        articleHeight: article.offsetHeight,
+        viewportHeight: window.innerHeight,
+        headerHeight: header?.offsetHeight ?? 0,
+      });
+
+      fill.style.transform = `scaleX(${value / 100})`;
+      progress.setAttribute('aria-valuenow', String(value));
+    };
+
+    const scheduleUpdate = () => {
+      if (frame === undefined) {
+        frame = window.requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+  }
+</script>
+
+<style>
+  .reading-progress {
+    position: fixed;
+    top: calc(4rem + var(--border-width));
+    left: 0;
+    z-index: 90;
+    width: 100%;
+    height: 0.625rem;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--surface-subtle);
+    border-bottom: var(--border-width) solid var(--border);
+  }
+
+  .reading-progress__fill {
+    width: 100%;
+    height: 100%;
+    background: var(--accent-primary);
+    box-shadow: inset -2px 0 0 var(--border);
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
+  }
+</style>
