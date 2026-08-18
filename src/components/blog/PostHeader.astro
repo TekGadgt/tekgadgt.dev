@@ -8,9 +8,18 @@ interface Props {
   image?: string | null;
   description?: string;
   readingTime?: number;
+  showAiAssistedMessage?: boolean;
 }
 
-const { title, date, tags = [], image, description, readingTime } = Astro.props;
+const {
+  title,
+  date,
+  tags = [],
+  image,
+  description,
+  readingTime,
+  showAiAssistedMessage = false,
+} = Astro.props;
 
 const formatted = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -36,6 +45,11 @@ const formatted = new Intl.DateTimeFormat('en-US', {
     <h1 class="post-header__title">{title}</h1>
     {description && (
       <p class="post-header__description">{description}</p>
+    )}
+    {showAiAssistedMessage && (
+      <p class="post-header__ai-note">
+        This post was created with AI assistance. <a href="/ai">Read how I use AI.</a>
+      </p>
     )}
   </div>
   {image && (
@@ -109,6 +123,21 @@ const formatted = new Intl.DateTimeFormat('en-US', {
     color: var(--text);
     opacity: 0.75;
     margin: 0;
+  }
+
+  .post-header__ai-note {
+    margin: 0.75rem 0 0;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-style: italic;
+    line-height: 1.4;
+    opacity: 0.65;
+  }
+
+  .post-header__ai-note a {
+    color: var(--link);
+    text-underline-offset: 2px;
   }
 
   .post-header__image {

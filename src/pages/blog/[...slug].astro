@@ -51,12 +51,8 @@ const showAiAssistedMessage = shouldShowAiAssistedMessage(post.showAiAssistedMes
         image={post.image ?? null}
         description={post.description}
         readingTime={readingTime}
+        showAiAssistedMessage={showAiAssistedMessage}
       />
-      {showAiAssistedMessage && (
-        <aside class="ai-assisted-message" aria-label="AI assistance disclosure">
-          This post was created with AI assistance. <a href="/ai">Read how I use AI.</a>
-        </aside>
-      )}
       <article class="prose" data-reading-content set:html={contentHtml} />
     </div>
   </div>
@@ -70,27 +66,6 @@ const showAiAssistedMessage = shouldShowAiAssistedMessage(post.showAiAssistedMes
   .post-inner {
     max-width: var(--prose-width);
     margin: 0 auto;
-  }
-
-  .ai-assisted-message {
-    margin: 0 0 2rem;
-    padding: 0.875rem 1rem;
-    color: var(--text);
-    background: var(--surface);
-    border: var(--border-width) solid var(--border);
-    box-shadow: var(--shadow);
-    font-family: var(--font-body);
-    line-height: var(--line-height-body);
-  }
-
-  .ai-assisted-message a {
-    color: var(--link);
-    font-weight: 700;
-    text-underline-offset: 3px;
-  }
-
-  .ai-assisted-message a:hover {
-    color: var(--link-hover);
   }
 
 </style>
