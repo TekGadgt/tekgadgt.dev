@@ -4,6 +4,7 @@ export default config({
   storage: {
     kind: 'github',
     repo: 'TekGadgt/tekgadgt.dev',
+    branchPrefix: 'cms/',
   },
   singletons: {
     homepage: singleton({
@@ -275,6 +276,10 @@ export default config({
           { label: 'Tags', itemLabel: (props) => props.value || 'New Tag' }
         ),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
+        previewKey: fields.text({
+          label: 'Preview key',
+          description: 'For drafts only. Use at least 16 URL-safe letters, numbers, hyphens, or underscores to create an unlisted preview URL.',
+        }),
         showAiAssistedMessage: fields.checkbox({
           label: 'Show AI-assisted disclosure',
           description: 'Show a note linking readers to the AI transparency page.',

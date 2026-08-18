@@ -35,6 +35,18 @@ src/
 keystatic.config.ts # CMS schema and configuration
 ```
 
+## Draft previews
+
+Draft posts stay out of `/blog`, normal post routes, and RSS. To create an unlisted preview, keep the post marked as a draft and add a `Preview key` in Keystatic using at least 16 URL-safe letters, numbers, hyphens, or underscores.
+
+After the site deploys, share:
+
+```text
+/preview/blog/<preview-key>/<post-slug>
+```
+
+Preview pages include `noindex, nofollow` and a visible unpublished banner. Clearing the draft checkbox removes the preview route and publishes the normal post route on the next build.
+
 ## Development
 
 ```sh
