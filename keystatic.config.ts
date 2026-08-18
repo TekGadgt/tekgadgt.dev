@@ -1,4 +1,55 @@
 import { config, collection, singleton, fields } from '@keystatic/core';
+import { createElement } from 'react';
+import { generatePreviewKey } from './src/lib/draftPreview.ts';
+
+function previewKeyField() {
+  const field = fields.text({
+    label: 'Preview key',
+    description: 'For drafts only. Generate an unlisted review URL or enter at least 16 URL-safe letters, numbers, hyphens, or underscores.',
+  });
+  const TextInput = field.Input;
+
+  return {
+    ...field,
+    Input(props: Parameters<typeof TextInput>[0]) {
+      const generate = () => {
+        if (
+          props.value &&
+          !window.confirm('Generate a new preview key? The existing review URL will stop working after the next deployment.')
+        ) {
+          return;
+        }
+
+        props.onChange(generatePreviewKey());
+      };
+
+      return createElement(
+        'div',
+        { style: { display: 'grid', gap: '0.5rem' } },
+        createElement(TextInput, props),
+        createElement(
+          'button',
+          {
+            type: 'button',
+            onClick: generate,
+            style: {
+              justifySelf: 'start',
+              padding: '0.45rem 0.75rem',
+              border: '1px solid currentColor',
+              borderRadius: '0.375rem',
+              background: 'transparent',
+              color: 'inherit',
+              cursor: 'pointer',
+              font: 'inherit',
+              fontWeight: 600,
+            },
+          },
+          props.value ? 'Generate new key' : 'Generate key'
+        )
+      );
+    },
+  };
+}
 
 export default config({
   storage: {
@@ -276,10 +327,7 @@ export default config({
           { label: 'Tags', itemLabel: (props) => props.value || 'New Tag' }
         ),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
-        previewKey: fields.text({
-          label: 'Preview key',
-          description: 'For drafts only. Use at least 16 URL-safe letters, numbers, hyphens, or underscores to create an unlisted preview URL.',
-        }),
+        previewKey: previewKeyField(),
         showAiAssistedMessage: fields.checkbox({
           label: 'Show AI-assisted disclosure',
           description: 'Show a note linking readers to the AI transparency page.',
