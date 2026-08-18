@@ -1,7 +1,19 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { getDraftPreviewPath } from '../src/lib/draftPreview.ts';
+import { generatePreviewKey, getDraftPreviewPath } from '../src/lib/draftPreview.ts';
+
+test('generates a 24-character URL-safe preview key from random bytes', () => {
+  const key = generatePreviewKey((bytes) => {
+    for (let index = 0; index < bytes.length; index += 1) {
+      bytes[index] = index;
+    }
+    return bytes;
+  });
+
+  assert.equal(key, 'ABCDEFGHIJKLMNOPQRSTUVWX');
+  assert.match(key, /^[A-Za-z0-9_-]{24}$/);
+});
 
 test('builds an unlisted preview path for a keyed draft', () => {
   assert.equal(
