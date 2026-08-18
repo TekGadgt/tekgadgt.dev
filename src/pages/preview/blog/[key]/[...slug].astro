@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../../components/layout/BaseLayout.astro';
+import PostHeader from '../../../../components/blog/PostHeader.astro';
+import ReadingProgress from '../../../../components/blog/ReadingProgress.astro';
+import { reader } from '../../../../lib/reader';
+import { shouldShowAiAssistedMessage } from '../../../../lib/aiDisclosure';
+import { getDraftPreviewPath } from '../../../../lib/draftPreview';
+import { estimateReadingTime } from '../../../../lib/reading';
+import Markdoc from '@markdoc/markdoc';
+import '../../../../styles/prose.css';
+
+export async function getStaticPaths() {
+  const posts = await reader.collections.posts.all();
+
+  return posts.flatMap((post) => {
+    const previewPath = getDraftPreviewPath({
+      slug: post.slug,
+      draft: post.entry.draft,
+      previewKey: post.entry.previewKey,
+    });
+
+    if (!previewPath) {
+      return [];
+    }
+
+    return [{
+      params: {
+        key: post.entry.previewKey!.trim(),
+        slug: post.slug,
+      },
+      props: { slug: post.slug },
+    }];
+  });
+}
+
+const { slug } = Astro.props as { slug: string };
+const post = await reader.collections.posts.read(slug);
+
+if (!post || !post.draft) {
+  return Astro.redirect('/404');
+}
+
+const contentResult = await post.content();
+const renderable = Markdoc.transform(contentResult.node);
+const contentHtml = Markdoc.renderers.html(renderable);
+const plainText = contentHtml.replace(/<[^>]*>/g, '');
+const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
+const readingTime = estimateReadingTime(wordCount);
+const showAiAssistedMessage = shouldShowAiAssistedMessage(post.showAiAssistedMessage);
+---
+
+<BaseLayout
+  title={`Draft preview: ${post.title} — Ryan McGovern`}
+  description={post.description}
+  noindex
+>
+  <ReadingProgress />
+  <div class="post-page">
+    <div class="post-inner">
+      <div class="draft-preview-banner" role="status">
+        Draft preview <span aria-hidden="true">·</span> Not published
+      </div>
+      <PostHeader
+        title={post.title}
+        date={post.date ?? ''}
+        tags={post.tags as string[]}
+        image={post.image ?? null}
+        description={post.description}
+        readingTime={readingTime}
+        showAiAssistedMessage={showAiAssistedMessage}
+      />
+      <article class="prose" data-reading-content set:html={contentHtml} />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .post-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .post-inner {
+    max-width: var(--prose-width);
+    margin: 0 auto;
+  }
+
+  .draft-preview-banner {
+    position: relative;
+    z-index: 1;
+    width: max-content;
+    max-width: calc(100% - 0.5rem);
+    margin: 0 0 -2px;
+    padding: 0.45rem 0.75rem;
+    color: var(--text);
+    background: var(--accent-primary);
+    border: var(--border-width) solid var(--border);
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+</style>
