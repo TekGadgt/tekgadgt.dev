@@ -1,17 +1,23 @@
 import { config, collection, singleton, fields } from '@keystatic/core';
+import { ActionButton } from '@keystar/ui/button';
+import { Flex } from '@keystar/ui/layout';
+import { TextField } from '@keystar/ui/text-field';
 import { createElement } from 'react';
 import { generatePreviewKey } from './src/lib/draftPreview.ts';
 
+const previewKeyLabel = 'Preview key';
+const previewKeyDescription =
+  'For drafts only. Generate an unlisted review URL or enter at least 16 URL-safe letters, numbers, hyphens, or underscores.';
+
 function previewKeyField() {
   const field = fields.text({
-    label: 'Preview key',
-    description: 'For drafts only. Generate an unlisted review URL or enter at least 16 URL-safe letters, numbers, hyphens, or underscores.',
+    label: previewKeyLabel,
+    description: previewKeyDescription,
   });
-  const TextInput = field.Input;
 
   return {
     ...field,
-    Input(props: Parameters<typeof TextInput>[0]) {
+    Input(props: Parameters<typeof field.Input>[0]) {
       const generate = () => {
         if (
           props.value &&
@@ -24,27 +30,20 @@ function previewKeyField() {
       };
 
       return createElement(
-        'div',
-        { style: { display: 'grid', gap: '0.5rem' } },
-        createElement(TextInput, props),
+        Flex,
+        { gap: 'regular', alignItems: 'end' },
+        createElement(TextField, {
+          flex: 1,
+          label: previewKeyLabel,
+          description: previewKeyDescription,
+          value: props.value,
+          onChange: props.onChange,
+          autoFocus: props.autoFocus,
+        }),
         createElement(
-          'button',
-          {
-            type: 'button',
-            onClick: generate,
-            style: {
-              justifySelf: 'start',
-              padding: '0.45rem 0.75rem',
-              border: '1px solid currentColor',
-              borderRadius: '0.375rem',
-              background: 'transparent',
-              color: 'inherit',
-              cursor: 'pointer',
-              font: 'inherit',
-              fontWeight: 600,
-            },
-          },
-          props.value ? 'Generate new key' : 'Generate key'
+          ActionButton,
+          { onPress: generate },
+          props.value ? 'Regenerate key' : 'Generate key'
         )
       );
     },
