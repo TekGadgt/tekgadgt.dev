@@ -2,7 +2,7 @@
   "items": [
     {
       "name": "YOLOharness",
-      "description": "A container-first CLI for running an AI coding agent inside a bounded, disposable Docker workspace. Project contents are staged into Docker-managed storage rather than exposed through a writable host-workspace mount; trusted host code performs constrained, create-only publication afterward. The runtime applies deadlines, CPU/ memory/process limits, dropped capabilities, read-only image roots, controlled networking, credential isolation, and bounded tool and local-skill loading. Structured receipts and fail-closed cleanup/publication semantics handle conflicts, interruptions, resource exhaustion, and uncertain Docker effects. Adversarial QA covers filesystem safety, token exposure, signals, cleanup races, and cross-platform Docker behavior.",
+      "description": "A container-first CLI for running an AI coding agent inside a bounded, disposable Docker workspace.",
       "url": "https://github.com/TekGadgt-Org/YOLOharness",
       "techTags": [
         "Javascript",
@@ -14,7 +14,7 @@
     },
     {
       "name": "yfere",
-      "description": "An offline-first decision and policy core for multi-agent AI systems. The implemented foundation provides deterministic catalogs, policy-based persona eligibility and team reconciliation, recorded decision replay with request/response binding, and two-stage persona/model/skill selection with pins, traces, and assignment IDs. Strict schemas, bounded inputs, canonical hashing, typed failures, deeply frozen outputs, redacted configuration, and hermetic injected-transport tests make selection reproducible and fail closed. Live provider execution, persistence, evaluation workflows, and broader runtime integration remain planned beyond the current offline core.",
+      "description": "An offline-first decision and policy core for multi-agent AI systems.",
       "url": "https://github.com/TekGadgt-Org/yfere",
       "techTags": [
         "Typescript",
@@ -95,7 +95,7 @@
         "Claude API",
         "OpenAI API"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "name": "Github Daily Digest",
@@ -136,7 +136,7 @@
         "react",
         "webextensions api"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "name": "BuildBeat",
