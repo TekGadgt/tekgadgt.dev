@@ -44,11 +44,17 @@
       "startDate": "2019-06-03",
       "endDate": "2021-03-01",
       "impact": [
-        "Built custom WordPress plugins (remote library sync, employee database search) and contributed to internal PHP/Laravel APIs while developing foundational skills in Vue and Nuxt.",
+        "Built custom WordPress plugins and contributed to internal PHP/Laravel APIs while developing production experience with Vue and Nuxt.",
         "Built marketplace features to enable contactless transactions during COVID-19, including virtual tours, buy- now functionality, and streamlined email correspondence for listing inquiries.",
-        "Implemented an in-house data collection service across multiple platforms, replacing a paid third-party dependency."
+        "Implemented an in-house data-collection service across multiple platforms, replacing a paid third-party dependency. "
       ],
-      "tech": [],
+      "tech": [
+        "PHP",
+        "Javascript",
+        "Laravel",
+        "Vue",
+        "Nuxt"
+      ],
       "featured": false
     }
   ]
