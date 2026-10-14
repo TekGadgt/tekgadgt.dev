@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "orgName": "Hacktoberfest Hack Day Hampton x RevolutionVA",
+      "role": "Co-Host",
+      "description": "Once a year event where the local developer community can network, participate in challenges for prizes, get free swag, and experience workshop/talks on theme-adjacent topics.",
+      "url": "https://events.mlh.com/events/14937-hacktoberfest-hack-day-hampton-x-revolutionva",
+      "status": "active",
+      "featured": true
+    },
+    {
       "orgName": "Late Night Builders",
       "role": "Organizer",
       "description": "A monthly hangout for builders, tinkerers, and the generally curious.",
