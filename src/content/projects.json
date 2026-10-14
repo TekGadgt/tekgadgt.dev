@@ -41,16 +41,11 @@
       "featured": true
     },
     {
-      "name": "Muse",
-      "description": "Obsidian plugin that generates blog topic ideas from your GitHub profile using AI.",
-      "url": "https://github.com/TekGadgt/muse",
-      "techTags": [
-        "TypeScript",
-        "Claude API",
-        "OpenAI API",
-        "Obsidian.md"
-      ],
-      "featured": true
+      "name": "Job Application Pipeline",
+      "description": "Discovers listings from ATS feeds, RSS, and manual URLs, then applies deterministic blocklists and deduplication before spending agent tokens. Provider-swappable chains perform Pydantic-validated extraction, skill-gap analysis, and fit scoring; recoverable provider failures advance to the next configured runner. Mock execution supports token-free tests, while subscription-auth checks prevent accidental pay-as-you-go API use. Ranked matches publish as Obsidian notes that double as Virginia Employment Commission work-search records, with user-edited applications protected from later overwrites. Deliberately does not automate applying.",
+      "url": "https://github.com/TekGadgt/Job-Application-Pipeline",
+      "techTags": [],
+      "featured": false
     },
     {
       "name": "Iris",
@@ -63,6 +58,18 @@
         "Obsidian.md"
       ],
       "featured": false
+    },
+    {
+      "name": "Muse",
+      "description": "Obsidian plugin that generates blog topic ideas from your GitHub profile using AI.",
+      "url": "https://github.com/TekGadgt/muse",
+      "techTags": [
+        "TypeScript",
+        "Claude API",
+        "OpenAI API",
+        "Obsidian.md"
+      ],
+      "featured": true
     },
     {
       "name": "Conclave Chat",
