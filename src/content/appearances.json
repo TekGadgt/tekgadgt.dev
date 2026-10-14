@@ -1,12 +1,36 @@
 {
   "items": [
     {
+      "type": "article",
+      "title": "Through 757 Tech, developers and programmers in Hampton Roads find community",
+      "outlet": "WHRO @ HTML Day Hampton Roads",
+      "date": "2026-09-02",
+      "url": "https://www.whro.org/business-growth/2026-09-02/through-757-tech-developers-and-programmers-in-hampton-roads-find-community",
+      "featured": false
+    },
+    {
+      "type": "video",
+      "title": "Can I code up this UI in 10 minutes?",
+      "outlet": "https://cssdaily.dev/ launch",
+      "date": "2026-04-08",
+      "url": "https://www.youtube.com/watch?v=bwn1lIQUPLE",
+      "featured": false
+    },
+    {
       "type": "interview",
       "title": "Builder Meetups Are Where the 757 Gets Better",
       "outlet": "Innovate 757",
       "date": "2026-03-19",
       "url": "https://www.innovate757.org/2026/03/19/builder-meetups-are-where-the-757-gets-better/",
-      "featured": true
+      "featured": false
+    },
+    {
+      "type": "video",
+      "title": "Speedrunning CSS on CSS Daily",
+      "outlet": "https://cssdaily.dev/ launch",
+      "date": "2026-03-07",
+      "url": "https://www.youtube.com/watch?v=3Uct3cQ77Xo",
+      "featured": false
     },
     {
       "type": "video",
@@ -14,7 +38,7 @@
       "outlet": "CodeTV · Web Dev Challenge",
       "date": "2025-11-14",
       "url": "https://www.youtube.com/watch?v=qYx8NX49OS8",
-      "featured": true
+      "featured": false
     }
   ]
 }
