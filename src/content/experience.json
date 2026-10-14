@@ -27,11 +27,15 @@
       "startDate": "2021-03-01",
       "endDate": "2022-06-01",
       "impact": [
-        "Managed and improved 500+ client WordPress sites, acting as the primary technical contact during client discussions.",
+        "Managed and improved 500+ client WordPress sites as the primary technical contact, translating client priorities into fixes and shipped enhancements.",
         "Collaborated with clients from various industries to address issues and implement enhancements based on their priorities.",
-        "Advocated for and contributed to modernization efforts on a legacy intranet platform, identifying technical debt and proposing upgrade paths."
+        "Advocated for modernization of a legacy intranet platform by identifying technical debt and proposing practical upgrade paths."
       ],
-      "tech": [],
+      "tech": [
+        "PHP",
+        "WordPress",
+        "Javascript"
+      ],
       "featured": false
     },
     {
