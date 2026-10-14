@@ -4,9 +4,19 @@
       "name": "Development",
       "items": [
         {
-          "name": "VS Code",
-          "description": "Primary editor",
-          "url": "https://code.visualstudio.com"
+          "name": "Hermes Agent",
+          "description": "Agent Harness",
+          "url": "https://hermes-agent.nousresearch.com"
+        },
+        {
+          "name": "Discord",
+          "description": "Chat app, agent communication",
+          "url": "https://discord.com"
+        },
+        {
+          "name": "Ghostty",
+          "description": "Terminal Application",
+          "url": "https://ghostty.org"
         },
         {
           "name": "Obsidian",
@@ -14,19 +24,19 @@
           "url": "https://obsidian.md/"
         },
         {
+          "name": "Codex",
+          "description": "Agentic coding harness",
+          "url": "https://openai.com/codex/"
+        },
+        {
           "name": "Claude Code",
-          "description": "Agentic coding companion",
+          "description": "Agentic coding harness",
           "url": "https://claude.com/product/claude-code"
         },
         {
-          "name": "Superpowers",
-          "description": "Agentic skills framework",
-          "url": "https://github.com/obra/superpowers"
-        },
-        {
-          "name": "Warp",
-          "description": "Modern GPU terminal",
-          "url": "https://www.warp.dev/"
+          "name": "VS Code",
+          "description": "Primary editor",
+          "url": "https://code.visualstudio.com"
         }
       ]
     },
@@ -44,9 +54,21 @@
           "url": "https://www.typescriptlang.org/"
         },
         {
+          "name": "PHP",
+          "url": "https://www.php.net"
+        },
+        {
+          "name": "Python",
+          "url": "https://www.python.org"
+        },
+        {
           "name": "Golang",
           "description": "Concurrent systems language",
           "url": "https://go.dev/"
+        },
+        {
+          "name": "Rust",
+          "url": "https://rust-lang.org"
         }
       ]
     },
@@ -87,6 +109,10 @@
           "name": "GitHub Pages / Actions",
           "description": "Free static hosting and CI/CD workflow automation",
           "url": "https://github.com/"
+        },
+        {
+          "name": "WordPress",
+          "url": "https://wordpress.org"
         }
       ]
     },
@@ -107,7 +133,7 @@
         },
         {
           "name": "Mouse",
-          "description": "Razer Naga V2 Hyperspeed, MX Master 4"
+          "description": "Corsair Scimitar Elite SE, MX Master 4"
         },
         {
           "name": "Keyboard",
@@ -116,6 +142,10 @@
         {
           "name": "Headphones",
           "description": "Epos H6Pro, Epos PC38X"
+        },
+        {
+          "name": "Scaleway Dedibox",
+          "url": "https://www.scaleway.com/en/dedibox/"
         }
       ]
     },
