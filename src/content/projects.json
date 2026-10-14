@@ -1,15 +1,29 @@
 {
   "items": [
     {
-      "name": "ryanmcgovern.dev/tekgadgt.dev",
-      "description": "Personal portfolio and developer site. Built with Astro and managed through Keystatic CMS.",
-      "url": "https://github.com/TekGadgt/tekgadgt.dev",
+      "name": "YOLOharness",
+      "description": "A container-first CLI for running an AI coding agent inside a bounded, disposable Docker workspace. Project contents are staged into Docker-managed storage rather than exposed through a writable host-workspace mount; trusted host code performs constrained, create-only publication afterward. The runtime applies deadlines, CPU/ memory/process limits, dropped capabilities, read-only image roots, controlled networking, credential isolation, and bounded tool and local-skill loading. Structured receipts and fail-closed cleanup/publication semantics handle conflicts, interruptions, resource exhaustion, and uncertain Docker effects. Adversarial QA covers filesystem safety, token exposure, signals, cleanup races, and cross-platform Docker behavior.",
+      "url": "https://github.com/TekGadgt-Org/YOLOharness",
       "techTags": [
-        "Astro",
-        "React",
-        "Keystatic CMS"
+        "Javascript",
+        "Docker",
+        "CLI Security",
+        "Adversarial Testing"
       ],
-      "featured": false
+      "featured": true
+    },
+    {
+      "name": "yfere",
+      "description": "An offline-first decision and policy core for multi-agent AI systems. The implemented foundation provides deterministic catalogs, policy-based persona eligibility and team reconciliation, recorded decision replay with request/response binding, and two-stage persona/model/skill selection with pins, traces, and assignment IDs. Strict schemas, bounded inputs, canonical hashing, typed failures, deeply frozen outputs, redacted configuration, and hermetic injected-transport tests make selection reproducible and fail closed. Live provider execution, persistence, evaluation workflows, and broader runtime integration remain planned beyond the current offline core.",
+      "url": "https://github.com/TekGadgt-Org/yfere",
+      "techTags": [
+        "Typescript",
+        "Javascript",
+        "Vitest",
+        "Zod",
+        "Yaml"
+      ],
+      "featured": true
     },
     {
       "name": "cssdaily.dev",
@@ -51,6 +65,18 @@
       "featured": false
     },
     {
+      "name": "Conclave Chat",
+      "description": "Self-hosted real-time chat with voice via LiveKit and federated identity via ATProto (soon).",
+      "url": "https://github.com/TekGadgt/Conclave-Chat",
+      "techTags": [
+        "JavaScript",
+        "WebSockets",
+        "Golang",
+        "LiveKit"
+      ],
+      "featured": false
+    },
+    {
       "name": "Pantry Party",
       "description": "Collaborative recipe generator — pool ingredients with friends and get AI-suggested meals.",
       "url": "https://github.com/TekGadgt/pantry-party",
@@ -65,18 +91,6 @@
       "featured": true
     },
     {
-      "name": "Conclave Chat",
-      "description": "Self-hosted real-time chat with voice via LiveKit and federated identity via ATProto (soon).",
-      "url": "https://github.com/TekGadgt/Conclave-Chat",
-      "techTags": [
-        "JavaScript",
-        "WebSockets",
-        "Golang",
-        "LiveKit"
-      ],
-      "featured": false
-    },
-    {
       "name": "Github Daily Digest",
       "description": "A zero-dependency GitHub Action that posts your daily GitHub activity to a Discord channel via webhook. ",
       "url": "https://github.com/TekGadgt/github_daily_digest",
@@ -84,6 +98,25 @@
         "Javascript",
         "github actions",
         "github api"
+      ],
+      "featured": false
+    },
+    {
+      "name": "Leagues Relic Picker",
+      "description": "OSRS Leagues relic planning tool.",
+      "url": "https://relics.runetools.lol/",
+      "techTags": [
+        "Astro"
+      ],
+      "featured": false
+    },
+    {
+      "name": "Web FPS Game",
+      "description": "Doom-inspired multiplayer FPS in the browser.",
+      "url": "https://web-fps-game.onrender.com/",
+      "techTags": [
+        "Three.js",
+        "JavaScript"
       ],
       "featured": false
     },
@@ -109,21 +142,13 @@
       "featured": false
     },
     {
-      "name": "Leagues Relic Picker",
-      "description": "OSRS Leagues relic planning tool.",
-      "url": "https://relics.runetools.lol/",
+      "name": "ryanmcgovern.dev/tekgadgt.dev",
+      "description": "Personal portfolio and developer site. Built with Astro and managed through Keystatic CMS.",
+      "url": "https://github.com/TekGadgt/tekgadgt.dev",
       "techTags": [
-        "Astro"
-      ],
-      "featured": false
-    },
-    {
-      "name": "Web FPS Game",
-      "description": "Doom-inspired multiplayer FPS in the browser.",
-      "url": "https://web-fps-game.onrender.com/",
-      "techTags": [
-        "Three.js",
-        "JavaScript"
+        "Astro",
+        "React",
+        "Keystatic CMS"
       ],
       "featured": false
     }
