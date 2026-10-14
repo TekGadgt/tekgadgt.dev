@@ -23,6 +23,14 @@
       "url": "https://www.meetup.com/757dev/",
       "status": "active",
       "featured": false
+    },
+    {
+      "orgName": "HTML Day Hampton Roads",
+      "role": "Organizer/Host",
+      "description": "Yearly HTML learning & building day.  Free food, socialization, & high level HTML learning!",
+      "url": "https://htmlday-hamptonroads.neocities.org",
+      "status": "active",
+      "featured": false
     }
   ]
 }
