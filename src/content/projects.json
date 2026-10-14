@@ -42,14 +42,14 @@
     },
     {
       "name": "Job Application Pipeline",
-      "description": "Discovers listings from ATS feeds, RSS, and manual URLs, then applies deterministic blocklists and deduplication before spending agent tokens. Provider-swappable chains perform Pydantic-validated extraction, skill-gap analysis, and fit scoring; recoverable provider failures advance to the next configured runner. Mock execution supports token-free tests, while subscription-auth checks prevent accidental pay-as-you-go API use. Ranked matches publish as Obsidian notes that double as Virginia Employment Commission work-search records, with user-edited applications protected from later overwrites. Deliberately does not automate applying.",
+      "description": "Discovers listings from ATS feeds, RSS, and manual URLs, then applies deterministic blocklists and deduplication before spending agent tokens.",
       "url": "https://github.com/TekGadgt/Job-Application-Pipeline",
       "techTags": [],
       "featured": false
     },
     {
       "name": "Iris",
-      "description": "Iris turns photos of whiteboard to-do lists into Markdown checklists, appended to a per-day file in your vault. Capture from camera/upload/clipboard, hierarchy detection (visual + inferred with footnoted reasoning), Anthropic + OpenAI providers. ",
+      "description": "Iris turns photos of whiteboard to-do lists into Markdown checklists, appended to a per-day file in your vault.",
       "url": "https://github.com/TekGadgt/Iris",
       "techTags": [
         "TypeScript",
