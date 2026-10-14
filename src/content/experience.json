@@ -6,14 +6,19 @@
       "startDate": "2022-06-01",
       "endDate": "2026-02-17",
       "impact": [
-        "Built frontend components for the migration from a legacy Vue 2 + PHP monolith to a decoupled Nuxt frontend, including the homepage, listing details page, and shared UI layers.",
-        "Designed and expanded advanced filtering systems serving 13M+ monthly visitors, improving search precision across large-scale inventory data.",
-        "Improved search relevance and autocomplete using Elastic synonym analyzers, reducing zero-result search rates.",
-        "Built the company’s first image cropping API using Imagick PHP, enabling dynamic aspect ratio support within existing resizing infrastructure.",
-        "Implemented inventory badging features to surface critical listing information to customers browsing listings.",
-        "Organized an internal company-wide learning conference featuring internal and external speakers, which grew into a recurring bi-annual event."
+        "Built a documentation semantic-search prototype using AWS Titan text embeddings on Bedrock, delivering effective retrieval over well-structured internal documentation during a company hackathon.",
+        "Contributed to a decoupled Nuxt/TypeScript frontend migration on a marketplace platform serving 13M+ monthly visitors, building homepage, listing-details, and shared UI components.",
+        "Improved inventory discovery through advanced filters and Elastic synonym analyzers that increased search precision and reduced zero-result searches.",
+        "Built the company’s first Imagick image-cropping API, adding dynamic aspect-ratio support to shared resizing infrastructure used across its portfolio of vertical marketplaces.",
+        "Co-organized Trader Interactive’s inaugural Day of Learning, a full-scale day-long virtual developer conference (10 hours, 4 talk tracks). Drafted the CFP for internal speakers, recruited external speakers including AWS, ran a staged pre-event marketing campaign across Slack and email with progressive reveals, designed gamified attendee and speaker incentive programs, coordinated Google Meet infrastructure with permissions and attendance tracking, and drafted the post-event measurement survey. ~20 speakers and 500 attendees across the company participated in the first year, with plans to make it an annual or bi-annual event."
       ],
-      "tech": [],
+      "tech": [
+        "PHP",
+        "Typescript",
+        "Vue",
+        "Nuxt",
+        "AWS"
+      ],
       "featured": false
     },
     {
