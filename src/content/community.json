@@ -3,10 +3,18 @@
     {
       "orgName": "Late Night Builders",
       "role": "Organizer",
-      "description": "Builder meetup community.",
+      "description": "A monthly hangout for builders, tinkerers, and the generally curious.",
       "url": "https://www.meetup.com/757dev/",
       "status": "active",
       "featured": true
+    },
+    {
+      "orgName": "Code & Coffee",
+      "role": "Co-Host",
+      "description": "Monthly rotating location coffee shop meetup for networking & project work in the Hampton Roads area",
+      "url": "https://www.meetup.com/757dev/",
+      "status": "active",
+      "featured": false
     }
   ]
 }
