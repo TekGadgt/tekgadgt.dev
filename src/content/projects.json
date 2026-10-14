@@ -44,7 +44,12 @@
       "name": "Job Application Pipeline",
       "description": "Discovers listings from ATS feeds, RSS, and manual URLs, then applies deterministic blocklists and deduplication before spending agent tokens.",
       "url": "https://github.com/TekGadgt/Job-Application-Pipeline",
-      "techTags": [],
+      "techTags": [
+        "Python",
+        "Pydantic",
+        "Claude Agent SDK",
+        "OpenAI Codex"
+      ],
       "featured": false
     },
     {
