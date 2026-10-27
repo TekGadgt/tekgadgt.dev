@@ -8,13 +8,20 @@ interface Props {
   title: string;
   description?: string;
   noindex?: boolean;
+  image?: string;
+  type?: 'website' | 'article';
 }
 
 const {
   title,
   description = 'Ryan McGovern — developer and community builder.',
   noindex = false,
+  image = '/images/heroImage.jpg',
+  type = 'website',
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -24,6 +31,14 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Ryan McGovern" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <script is:inline>

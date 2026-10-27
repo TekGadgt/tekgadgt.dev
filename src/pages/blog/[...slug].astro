@@ -40,7 +40,12 @@ const readingTime = estimateReadingTime(wordCount);
 const showAiAssistedMessage = shouldShowAiAssistedMessage(post.showAiAssistedMessage);
 ---
 
-<BaseLayout title={`${post.title} — Ryan McGovern`} description={post.description}>
+<BaseLayout
+  title={`${post.title} — Ryan McGovern`}
+  description={post.description}
+  image={post.image ?? undefined}
+  type="article"
+>
   <ReadingProgress />
   <div class="post-page">
     <div class="post-inner">
